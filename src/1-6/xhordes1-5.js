@@ -1293,23 +1293,23 @@
 				var a;
 				cc.castbar && Ic && 1 == Ic.state.id ? (a = 100 - Ic.state.duration / Ic.state.maxduration * 100, cc.castbarcontainer.show()) : (cc.castbarcontainer.hide(), a = 0), cc.castbar.css("width", a + "%")
 			}
-            function testNotifications(){
-                if (!("Notification" in window)) {
-                    return false
-                }
-                else if (Notification.permission === "granted") {
-                    return true
-                }
-                else if (Notification.permission !== "denied") {
-                    Notification.requestPermission(function (permission) {
-                        if (permission === "granted") {
-                            var notification = new Notification("Notifications have been enabled!");
-                            return true
-                        }
-                    }
-                }
-                else return false
-            }
+            // function testNotifications(){
+            //     if (!("Notification" in window)) {
+            //         return false
+            //     }
+            //     else if (Notification.permission === "granted") {
+            //         return true
+            //     }
+            //     else if (Notification.permission !== "denied") {
+            //         Notification.requestPermission(function (permission) {
+            //             if (permission === "granted") {
+            //                 var notification = new Notification("Notifications have been enabled!");
+            //                 return true
+            //             }
+            //         }
+            //     }
+            //     else return false
+            // }
 			function Y(a) {
 				if (cc.chatboxWrapper) {
 					var b = a.msg || "Message error.",
@@ -1348,12 +1348,12 @@
 							if(typeof window.muted!=="undefined"&&!!~window.muted.indexOf(a.name)) return;
 							if ($(".targetname")[0].innerText.substring(0, $(".targetname")[0].innerText.length-4)!=='')(b.startsWith("@"+$(".targetname")[0].innerText.substring(0, $(".targetname")[0].innerText.length-4)+" "))||b==="@"+$(".targetname")[0].innerText.substring(0, $(".targetname")[0].innerText.length-4)?c="chatmsg chatmsg-mention":c=c;
 							b = "[" + a.name + "]: " + b;
-							if(!testNotifications()) {
-							    var notify = new Notification(a.name, {
-							        icon: "http://hordes.io/icon.png",
-							        body: b
-							    })
-							}
+				// 			if(!testNotifications()) {
+				// 			    var notify = new Notification(a.name, {
+				// 			        icon: "http://hordes.io/icon.png",
+				// 			        body: b
+				// 			    })
+				// 			}
 							break;
 						case "gm":
 							if (!va(Pa.get("chat-chat"))) return;
