@@ -20,7 +20,7 @@ If you want to renable XHordes after previously disabling it, head to the Hordes
 Just reload the page and you'll be able to use XHordes once more!
 
 ### Current Features
-(Potentially Helpful [No guarantees though. :P])
+#### Note: Most of these features were broken with the latest Hordes.io update, which added trees to the game, so for the moment only the first feature listed works. We are working on getting the others up and running again, sorry about that. :/
 
 * Display item stat maxes
 * Change color of stats that are maxed out
