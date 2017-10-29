@@ -1,0 +1,1231 @@
+body,
+html {
+    margin: 0;
+    overflow: hidden;
+
+}
+
+@media (min-width: 900px) { .container { width: 900px !important; } }
+
+
+#page {
+    background-color: #fff;
+    border-radius: 8px;
+    padding-bottom:10px;
+}
+
+#renderer {
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    position:absolute;
+    top:0;
+    left:0;
+}
+
+/*#previewRenderer {
+    height:200px;
+    margin-top: -20px;
+}*/
+
+body {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: default;
+}
+
+.bloglink {
+    margin-bottom:10px;
+}
+
+.centerHelper {
+    position: absolute;
+    left: 50%;
+    width: 75%;
+    max-width: 1200px;
+}
+
+.panel {
+    margin: 0;
+    border: 0;
+    box-shadow: none;
+}
+
+
+.modal-dialog {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+.modal-backdrop {
+    opacity: 0.2 !important;
+}
+
+
+/* SKILLS */
+
+#skillbar {
+    position: absolute;
+    height: 50px;
+    width: 220px;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    bottom: 25px;
+}
+
+.skill {
+    margin: 2.5px;
+    position: relative;
+    display: inline;
+}
+
+.skillIcon {
+    border-radius: 10px;
+    height: 50px;
+    width: 50px;
+}
+
+.skillHotkey {
+    position: absolute;
+    top: -14px;
+    right: 0px;
+    color: #AAA;
+}
+
+.skillCooldown {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    color: #FF0;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: right;
+}
+
+.skillOverlay {
+    position: absolute;
+    top: -14px;
+    left: 0px;
+    border-radius: 10px;
+    height: 50px;
+    width: 50px;
+    margin: 0;
+    padding: 5px;
+    background: rgba(40, 60, 100, 0.5)
+}
+
+.skillOverlayDisable {
+    background: rgba(80, 80, 80, 0.8);
+}
+
+.skillLvlUpButton {
+    position: absolute;
+    right: 10px;
+    top: -47px;
+    width: 28px;
+    height: 28px;
+    padding: 0;
+    background-color: #c7f1a6;
+    color: #4b8253;
+    border: 1px solid #74a24c;
+    outline: none !important;
+}
+
+.skillLvlUpButton:hover,
+.skillLvlUpButton:focus {
+    color: #4A7A47;
+}
+
+.skillButtonDisabled,
+.skillButtonDisabled:hover,
+.skillButtonDisabled:focus {
+    background-color: #6d6d6d;
+    color: #616161;
+    border: 1px solid #585858;
+    cursor: default;
+}
+
+
+/*    */
+
+.progress {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    height: 13px;
+    margin: 0px;
+}
+
+
+/* Progress bars */
+
+.progress-bar {
+    -webkit-transition: none !important;
+    transition: none !important;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+
+/* Info / Help field*/
+
+#infoText {
+    width: 100%;
+    margin: 0 0 10px 0;
+}
+
+
+/* EXP Bar */
+
+#expBarContainer {
+    position: absolute;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    margin: 0px;
+}
+
+#expbar {
+    width: 0%;
+    padding: 0px;
+    font-size: 10px;
+    line-height: 13px;
+    background-color: #e49333;
+}
+
+.progressbartext {
+    font-size: 11px;
+    line-height: 12px;
+    font-weight: 800;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
+/* Castbar */
+
+#castBarContainer {
+    position: absolute;
+    width: 200px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    bottom: 20%;
+}
+
+
+/* Statistics window */
+
+#statistics {
+    background: rgba(255, 255, 255, 0.5);
+    width: 220px;
+    height: 85px;
+    float: left;
+}
+
+#statistics-body {
+    padding: 5px;
+    position: relative;
+    width: 100%;
+}
+
+#statistics-body div {
+    width: 110px;
+}
+
+.factionAStatistics {
+    position: absolute;
+    left: 10px;
+}
+
+.factionBStatistics {
+    text-align: right;
+    position: absolute;
+    right: 10px;
+}
+
+
+/* Ladder */
+
+#ladder {
+    background: rgba(255, 255, 255, 0.5);
+    width: 220px;
+    margin-top: 5px;
+    clear: left;
+    float: right;
+}
+
+#ladder-body {
+    padding: 5px 10px 5px 10px;
+}
+
+#ladder p {
+    margin: 0;
+    padding: 0;
+}
+
+
+/* ICONS */
+
+
+/* chat window */
+
+#chatbox {
+    background: rgba(255, 255, 255, 0.5);
+    min-width: 400px;
+    width: 100%;
+    padding: 5px;
+    height: 200px;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+#chatboxWrapper {
+    padding: 0;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    overflow-wrap: break-word;
+    order: 1;
+    flex-grow: 1;
+}
+
+#chatSettingWrapper {
+    margin: 0 0 5px 5px;
+    order: 2;
+}
+
+.chatsettingbutton,
+.chatsettingbutton:hover {
+    border-style: none;
+    background-color: #fff;
+    padding: 1px 5px;
+    color: #777;
+    border-radius: 3px;
+    font-size: 12px;
+    font-weight: 800;
+    line-height: 1.5;
+}
+
+.chatsettingdisable,
+.chatsettingdisable:hover {
+    background-color: rgba(255, 255, 255, 0.42);
+    color: rgb(142, 142, 142);
+}
+
+.chatsettingdisable:active,
+.chatsettingbutton:active {
+    box-shadow: none;
+    webkit-box-shadow: none;
+}
+
+#chatboxBody {
+    position: relative;
+    bottom: 0px;
+    -webkit-touch-callout: text;
+    -webkit-user-select: text;
+    -khtml-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+    cursor: auto;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+#chatInput {
+    order: 2;
+}
+
+
+/* CHAT MESSAGES */
+
+.chatmsg {
+    font-weight: 600;
+    margin: 0 0 0 0;
+}
+
+
+/* SCROLLBAR */
+
+::-webkit-scrollbar-track {
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: #FFFFFF;
+}
+
+
+/* UI Anchors */
+
+#upperLeftContainer {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    margin: 5px;
+}
+
+#lowerRightContainer {
+    position: absolute;
+    bottom: 20px;
+    right: 0px;
+    margin: 5px;
+}
+
+#upperRightContainer {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    margin: 5px;
+}
+
+#lowerLeftContainer {
+    width: 30%;
+    position: absolute;
+    bottom: 20px;
+    left: 0px;
+    margin: 5px;
+}
+
+/* Target panel */
+
+.real {
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 1px;
+	text-align: center;
+	background-color: rgba(00, 15, 125, .4);
+}
+
+.registered {
+	background-color: rgba(0, 255, 0, 0.4);
+}
+
+.unregistered {
+	background-color: rgba(255, 0, 0, 0.4);
+}
+
+.targetPanel {
+    margin: 0 5px 5px 0;
+    padding: 5px 5px 5px;
+    width: 210px;
+    float: left;
+}
+
+.targetinfo {
+    display: flex;
+    flex-direction: row;
+    margin: 0 0 3px;
+}
+
+.hpbarbg {
+    height: 25px;
+    position: relative;
+    background-color: #596D5F;
+}
+
+.hpbar {
+    width: 75%;
+    background-color: #57C347;
+}
+
+.mpbarbg {
+    height: 16px;
+    position: relative;
+    background-color: #394545;
+    margin-top: 3px;
+}
+
+.mpbar {
+    width: 75%;
+    background-color: #0d84c5;
+}
+
+.manafont {
+    font-size: 10px;
+}
+
+.targettext {
+    margin: 0 5px 0 0;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.targetname {
+    order: 1;
+    flex-grow: 1;
+    width: 150px;
+    overflow: hidden;
+}
+
+.targetlevel {
+    color: #999;
+    text-align: right;
+    order: 2;
+}
+
+.targethealthtext {
+    color: #FAF5EF;
+    text-align: right;
+    position: absolute;
+    right: 0px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.targetMode {
+    font-weight: 300;
+    color: #AAA;
+    font-size: 75%;
+    padding-left: 3px;
+}
+
+
+/*System bar*/
+
+#resources {
+    padding: 5px;
+    margin: 0 10px 10px 0;
+    clear: both;
+    float: left;
+}
+
+.resourcesText {
+    font-weight: 700;
+    margin: 5px 0 0 0;
+    font-weight: 700;
+    background-color: rgba(255,255,255,0.5);
+    border-radius: 4px;
+    float: right;
+    padding: 0 5px 0 5px;
+}
+
+.goldCoin {
+    margin: 0 4px 0 0;
+    height: 1.2em;
+    vertical-align: -20%;
+}
+
+
+/* Info Panel*/
+
+#infoPanel {
+    padding: 5px 5px 5px 8px;
+    min-width: 220px;
+    max-width: 350px;
+}
+
+.skillName {
+    font-weight: 700;
+    color: #02CD02;
+    margin: 0 0 5px 0;
+}
+
+.skillDescription {
+    color: #235C22;
+    margin: 0 0 5px 0;
+    font-size: 90%;
+}
+
+.skillLvlInfo {
+    font-weight: 700;
+    color: #131313;
+    margin: 0 0 5px 0;
+}
+
+
+/* general colors */
+
+.ally {
+    color: #253F28;
+}
+
+.enemy {
+    color: #922222;
+}
+
+.chatmsg-system {
+    color: #067E3E;
+}
+
+.chatmsg-loot {
+    color: #8519BD;
+}
+
+.chatmsg-exp {
+    color: #435CDC;
+}
+
+.chatmsg-player {
+    color: #414141;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 3px;
+    padding: 3px;
+}
+
+.chatmsg-death {
+    color: #971818;
+}
+
+.chatmsg-global {
+    color: #424242;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 3px;
+    padding: 3px;
+}
+
+.chatmsg-clan {
+    color: #0088ff;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 3px;
+    padding: 3px;
+}
+
+
+.chatmsg-w {
+    color: #0CD4E0;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 3px;
+    padding: 3px;
+}
+
+.chatmsg-mention {
+    color: #CCCC00;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 3px;
+    padding: 3px;
+}
+
+.chatmsg-hidden {
+		display:none;
+}
+
+.chatmsg-pk {
+    color: #EE0054;
+}
+
+.factionA {
+    color: #134E9E;
+}
+
+.factionB {
+    color: #931212;
+}
+
+.unreg {
+    color: #797979;
+}
+
+
+/*login menu*/
+
+.cSelName {
+    margin: 0;
+    padding-left: 3px;
+}
+
+.factionSelect {
+    background-color: #fff;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+}
+
+.factionSelect.active,
+.factionSelect.active:hover,
+.factionSelect.active:active {
+    background-color: #337ab7;
+    border-color: #337ab7;
+}
+
+.factionSelect img {
+    display: block;
+    margin: 10px auto 10px auto;
+}
+
+.factionSelect:hover {
+    background-color: #f5f5f5;
+}
+
+.factionSelA {
+    border-right: none;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+.factionSelB {
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+}
+
+
+/*SocialMedia*/
+
+.socialIcon img {
+    width: 25px;
+    margin-right: 15px;
+}
+
+.instructions p {
+    margin-bottom: 4px;
+}
+
+.fb-like {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.twitter-share-button {
+    display: inline-block;
+    vertical-align: top;
+}
+
+
+/* Systembar */
+
+#systembar {
+    float: left;
+    padding-right: 5px;
+}
+
+.systembarbutton {
+    margin: 0px;
+    padding: 5px;
+}
+
+.chatchannelbutton {
+    margin:0 5px 0 0;
+    padding-left:5px;
+    padding-right:5px;
+}
+
+.systembarbutton span {
+    font-size: 12px;
+}
+
+.modal-body-base {
+    -webkit-touch-callout: text;
+    -webkit-user-select: text;
+    -khtml-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+    cursor: auto;
+}
+
+.modal-user {
+    width: 300px;
+    height: 500px;
+}
+
+.patchnotelist {
+    padding-left: 20px;
+    font-size: 14px;
+}
+
+#classSelection,
+#factionSelectionPanel {
+    clear: left;
+}
+
+.classChoice img {
+    margin-right: 15px;
+}
+
+.classicon {
+    margin: 0 0.2em 0 0;
+    height: 1.2em;
+    bottom: -1px;
+    float: left;
+    position: relative;
+}
+
+.factionicon {
+    margin: 0 4px 0 0;
+    height: 1.0em;
+    vertical-align: -10%;
+}
+
+/* Settings */
+
+.modal-settings {
+    width: 80%;
+    max-width: 400px;
+    height: 500px;
+}
+
+.td-setting {
+    width: 40%
+}
+
+#deathScreen {
+    width: 300px;
+    position: fixed;
+        height: 226px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+}
+
+#sharebuttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.share-facebook {
+    width: 50%;
+    display: inline;
+}
+
+.share-twitter {
+    margin-left: 10px;
+    width: 50%;
+    display: inline;
+}
+
+.editorMain {
+    position: absolute;
+    left: 50%;
+    width: 400px;
+    bottom: 10px;
+}
+
+.editorpanel {
+    padding: 8px;
+}
+
+#inventory {
+    left: 5px;
+    top: 364px;
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 5px;
+    padding: 5px;
+
+}
+
+#inventory h5{
+        margin-top: 5px;
+    font-weight: 800;
+}
+
+#inventory-items {
+    display: flex;
+    margin-top:10px;
+    flex-wrap: wrap;
+    width: 294px;
+}
+
+.item {
+    width: 40px;
+    height: 40px;
+    background-color: #757575;
+    border-radius: 7px;
+    padding: 1px;
+    margin: 1px;
+    position:relative;
+    overflow: hidden;
+    border: 3px solid #000;
+}
+
+.mouseItem {
+    width: 30px;
+    height: 30px;
+    background-color: #98BEBE;
+    border-radius: 7px;
+    padding: 1px;
+    margin: 1px;
+    position:absolute;
+    overflow: hidden;
+    z-index:9;
+}
+
+.item:hover {
+    box-shadow: inset 0 0 10px #c5f8ff;
+}
+
+.itemPic {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.itemPicRotated {
+    transform: translateX(-50%) translateY(-50%) rotate(45deg);
+    max-width: 120%;
+    max-height: 120%;
+}
+
+.itemEmpty:hover {
+    box-shadow: inset 0 0 10px #fff;
+}
+.itemEmpty {
+    width: 40px;
+    height: 40px;
+    background-color: rgba(195, 195, 195, 0.39);
+    border-radius: 7px;
+    margin: 1px;
+    position: relative;
+    border: 3px solid rgba(173, 170, 170, 0.5);
+    background-repeat: no-repeat;
+    background-size: 80%;
+    background-position: center;
+}
+
+.itemViewer {
+    border: 3px solid rgba(0, 20, 40, 0.2);
+    background-color: rgba(0, 20, 40, 0.7);
+    border-radius: 7px;
+    margin: 1px;
+    position:absolute;
+    z-index:10;
+    color:#fff;
+    padding:5px;
+}
+
+.itemName{
+    font-size:16px;
+    font-weight:800;
+    margin:0;
+}
+
+.itemStat{
+    font-size:14px;
+}
+
+.itemDescription{
+    font-size:12px;
+    color:#999;
+    margin-bottom: 10px;
+}
+
+
+#characterpanel {
+    left: 5px;
+    top: 88px;
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 5px;
+    padding: 5px;
+}
+
+#characterpanel h5{
+        margin-top: 5px;
+    font-weight: 800;
+}
+
+
+#character-stats {
+    padding: 5px;
+    margin-left: 10px;
+    background-color: rgba(255, 255, 255, 0.33);
+    min-width: 150px;
+    border-radius: 4px;
+    float:left;
+}
+
+#character-items {
+    position:relative;
+    width: 220px;
+    height: 150px;
+    float:left;
+}
+
+.charstat {
+    text-align: end;
+}
+
+#character-icon {
+    position:absolute;
+    right: 50%;
+    transform: translateX(50%);
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* SLOTS */
+.equipslot {
+    position:absolute;
+}
+
+
+.slot_glove {
+    background-image: url("http://hordes.io/data/slots/glove.png");
+    left:0%;
+}
+
+.slot_armlet {
+    background-image: url("http://hordes.io/data/slots/armlet.png");
+    left:0%;
+    top:42px;
+}
+
+.slot_boot {
+    background-image: url("http://hordes.io/data/slots/boot.png");
+    left:0%;
+    top:84px;
+}
+
+.slot_gem {
+    background-image: url("http://hordes.io/data/slots/gem.png");
+    right:0%;
+}
+
+.slot_ring {
+    background-image: url("http://hordes.io/data/slots/ring.png");
+    right:0%;
+    top:42px;
+}
+
+.slot_bag {
+    background-image: url("http://hordes.io/data/slots/bag.png");
+    right:0%;
+    top:84px;
+}
+
+.slot_weapon {
+    background-image: url("http://hordes.io/data/slots/weapon.png");
+    right: 50%;
+    top: 130px;
+    transform: translateX(-22px);
+}
+
+.slot_offhand {
+    background-image: url("http://hordes.io/data/slots/offhand.png");
+    right: 50%;
+    transform: translateX(62px);
+    top: 130px;
+}
+
+.slot_armor {
+    background-image: url("http://hordes.io/data/slots/armor.png");
+    right: 50%;
+    transform: translateX(50%);
+    top: 130px;
+}
+
+.statReqMiss {
+    color:#f00;
+}
+
+.statReq {
+    color:#0f0;
+}
+
+.skillReqMiss {
+    color:#b00;
+}
+
+.skillReq {
+    color:#0b0;
+}
+
+
+.clearslot {
+    background-image: none;
+}
+
+.cleantable {
+    line-height: 1.6em;
+    table-layout: fixed;
+    white-space: nowrap;
+}
+
+.charPanelIcon {
+
+}
+
+
+/* Help screen */
+.modal-help {
+    width: 450px;
+    height:510px;
+}
+
+.td-help {
+    width: 60%;
+}
+
+.controltable>tbody>tr>td {
+    line-height: 0.8;
+}
+
+.detailText {
+    color:#999;
+}
+
+
+/* icon */
+.sys-icon{
+        background-repeat: no-repeat;
+    background-size: 80%;
+    background-position: center;
+    width:20px;
+    height:20px;
+}
+.icon-bag{
+    background-image: url("http://hordes.io/data/icons/bag.png");
+}
+.icon-char{
+    background-image: url("http://hordes.io/data/icons/char.png");
+    background-position-y: 0px 
+}
+.icon-id{
+    background-image: url("http://hordes.io/data/icons/id.png");
+}
+.icon-settings{
+    background-image: url("http://hordes.io/data/icons/settings.png");
+}
+.icon-help{
+    background-image: url("http://hordes.io/data/icons/help.png");
+}
+.icon-clan{
+    background-image: url("http://hordes.io/data/icons/horde.png");
+}
+.icon-discord{
+	background-image: url("http://i.imgur.com/L6HyDbt.png");
+}
+.iconpanelmod {
+    float: left;
+    margin: -3px 4px 0 0;
+}
+
+#trader {
+    width:350px;
+    position:absolute;
+    background-color: rgba(255, 255, 255, 1.0);
+    border-radius: 5px;
+    padding: 5px;
+
+}
+
+
+/** CLAN **/
+.sm-hr {
+    margin:10px 0 10px 0;
+}
+
+.modal-clan {
+    width: 700px;
+    height:440px;
+}
+
+
+.clanstat {
+    border:none;
+}
+
+.td-clanstat {
+    text-align: end;
+}
+
+.clantable {
+
+}
+
+.clanmemberlist{
+    height:300px;
+        overflow-y: scroll;
+    overflow-x: hidden;
+    overflow-wrap: break-word;
+        width: 450px;
+}
+
+.clanmemberlist::-webkit-scrollbar-track {
+    background-color: #ddd;
+}
+
+.clanmemberlist::-webkit-scrollbar-thumb {
+    background-color: #555;
+}
+
+.clantable>tbody>tr>td
+{
+   /* line-height: 0.8em; */
+}
+
+
+.clanstat>tbody>tr>td
+{
+    line-height: 1em;
+    border:none;
+}
+
+
+
+
+#setNickModalButton{
+    position: absolute;
+    left: 10px;
+    top: 220px;
+}
+
+#visitProfile{
+    position: absolute;
+    left: 150px;
+    top: 220px;
+}
+
+#userinteract {
+    width:350px;
+    position:absolute;
+    background-color: rgba(255, 255, 255, 1.0);
+    border-radius: 5px;
+    padding: 5px;
+
+}
+
+.btmlink{
+    margin: 0 10px;
+}
+
+/* stuff for ingame-profiles */
+
+.playerProfile {
+	height: auto;
+	width: 250px;
+	background-color: rgba(255,255,255,0.4);
+	border-radius: 30px;
+	margin-left: 435px;
+	margin-bottom: -120px;;
+	display: none;
+}
+.profileName {
+	margin-top: 1px;
+	text-align: center;
+	width: auto;
+}
+.profileName h2 {
+	font-size: 20px;
+}
+.profileName h4 {
+	font-size: 18px;
+}
+.playerStats {
+	width: auto;
+	height: auto;
+}
+.profileClan {
+	display: inline-block
+}
