@@ -17,7 +17,7 @@
         url: "http://hordes.io",
         onload: function(ev) {
             document.open();
-            let index = ev.responseText.replace('<script src="script/dist.min.js"></script>', '<script src="https://cdn.rawgit.com/LegusX/xhordes/master/src/bags/bags.js"></script> ');
+            let index = ev.responseText.replace('<script src="script/dist.min.js"></script>', '<script src="https://cdn.rawgit.com/LegusX/xhordes/096b9bcb/src/bags/bags0-1.js"></script> ');
             index = index.replace('<link rel="stylesheet" href="gamestyles.css">', '<link rel="stylesheet"href="https://cdn.rawgit.com/LegusX/xhordes/6b62ebf3/src/trees/xhordes.css">');
             document.write(index);
             document.close();
