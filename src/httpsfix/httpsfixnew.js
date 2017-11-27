@@ -15133,16 +15133,16 @@ window.xhordes = {};
 			}), St.simple_combo(zt.get("profile"), function() {
 				if(!$(".playerProfile").length) {
 					$("#chatbox").before('<div class="playerProfile"> <h3 class = "profileName"> <div class = "profileClan" style = "color: purple;">[CLAN] </div> PLAYER</h3> <div class = "playerStats"> <button style = "height: auto; width: auto; background-color: rgba(235, 49, 49, 0.84); text-align: center; margin-left: 20%" class = "profileClose">Close</button> <button style = "height: auto; width: auto; background-color: rgba(52, 49, 235, 0.86); text-align: center;" class = "profileView">View Profile</button></div> </div>');
-					}
+				}
 				var name = window.getSelection().toString();
 				if(window.getSelection()) {
 					$(".profileName").load('https://hordes.io/player/' + name + ' .col-md-12');
 					$(".playerProfile").css("display", "inline-block");
-					}
+				}
 				else {
 					$(".profileName").text("[CLAN]   PLAYER");
 					$(".playerProfile").css("display", "none");
-					}
+				}
 				$(".profileClose").click(function() {
 					$(".playerProfile").remove();
 					name = "";
@@ -15268,22 +15268,30 @@ window.xhordes = {};
     } else console.log("Error: Webstorage not working.");
     var Bt = {
             skill1: "1",
-            skill2: "2",
-            skill3: "3",
-            skill4: "4",
-            nextTarget: "tab",
-            nextAlly: "shift",
-            walkForward: "w",
-            walkLeft: "a",
-            walkRight: "d",
-            walkBackward: "s",
-            turnLeft: "left",
-            turnRight: "right",
-            walkForward2: "up",
-            walkBackward2: "down",
-            toggleHelp: "f1",
-            inventory: "b",
-            character: "c"
+			skill2: "2",
+			skill3: "3",
+			skill4: "4",
+			nextTarget: "tab",
+			nextAlly: "shift",
+			walkForward: "w",
+			walkLeft: "a",
+			walkRight: "d",
+			walkBackward: "s",
+			turnLeft: "left",
+			turnRight: "right",
+			walkForward2: "up",
+			walkBackward2: "down",
+			toggleHelp: "f1",
+			inventory: "b",
+			character: "c",
+			toggleChat: "f2",
+			globalChat: "g",
+			clanChat: "h",
+			toggleLb: "f3",
+			toggleLadder: "o",
+			toggleStats: "p",
+			toggleLegusHelp: "x",
+			profile: "t"
         },
         zt = new function() {
             this.get = function(t) {
