@@ -17846,7 +17846,7 @@ window.xhordes = {};
         kn()
     });
     var kn = function() {
-            (bn = "localhost" == document.location.hostname ? io("localhost:8123") : io("hordes.io:443")).on("h", function() {
+            (bn = "localhost" == document.location.hostname ? io("localhost:8123") : io("hordes.io")).on("h", function() {
                 load_c = !0, "select" === Sn && bn.emit("auth", {
                     id: zt.get("char"),
                     rc: !0
