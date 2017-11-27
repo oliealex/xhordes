@@ -15117,11 +15117,7 @@ window.xhordes = {};
             }, Ft()
         },
         Ft = function() {
-			//this comes in handy later, I promise
-			if(!$("#sys-discord").length){
-				$("#sys-help").after('<button class="btn btn-default systembarbutton" id="sys-discord" type="button"><div class="sys-icon icon-discord"></div></button>');
-			}
-            St.reset(),
+			St.reset(),
 			St.simple_combo(zt.get("toggleHelp"), function() {
 				$("#modal-help").replaceWith('<div class="modal fade in" id="modal-help" tabindex="-1" role="dialog" style="display: block;"><div class="modal-dialog modal-body-base modal-help" role="document"><div class="modal-content"><div class="modal-body"><button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button><h4><div class="sys-icon icon-help iconpanelmod"></div> Help</h4><div><h5>Controls <small>Can be changed with /rebind</small></h5><table class="table controltable"><tbody><tr><td><kbd>W A S D</kbd></td><td class="td-help"> Move around</td></tr><tr><td><kbd>1 2 3 4</kbd></td><td class="td-help"> Use skills on current target</td></tr><tr><td><kbd>B</kbd></td><td class="td-help"> Inventory</td></tr><tr><td><kbd>C</kbd></td><td class="td-help"> Character Panel</td></tr><tr><td><kbd>Left mouse</kbd></td><td class="td-help"> Select a target / Rotate camera</td></tr><tr><td><kbd>Right mouse</kbd></td><td class="td-help"> Look around</td></tr><tr><td><kbd>Tab</kbd></td><td class="td-help"> Next target</td></tr><tr><td><kbd>Shift</kbd></td><td class="td-help"> Next ally</td></tr><tr><td><kbd>F1</kbd></td><td class="td-help"> Toggle help</td></tr><tr><td style = "background-color: #FFCE44"><kbd>X</kbd></td><td class="td-help" style = "background-color: #FFCE44"> Show the XHORDES keys</td></tr></tbody></table><h5>Chat Commands <small>Type into chat to activate</small></h5><table class="table controltable"><tbody><tr><td><kbd>/bindings</kbd></td><td class="td-help"> Show list of current bindings</td></tr><tr><td><kbd>/rebind</kbd></td><td class="td-help"> Change the binding of a key</td></tr><tr><td><kbd>/resetbindings</kbd></td><td class="td-help"> Reset all bindings to default</td></tr><tr><td><kbd>/respawn</kbd></td><td class="td-help"> Suicide and go back to spawn</td></tr></tbody></table></div></div></div></div></div>');
                 $("#modal-help").modal("toggle")
@@ -15160,108 +15156,110 @@ window.xhordes = {};
 			}),	St.simple_combo(zt.get("clanChat"), function() {
 				$("#chatChannelName").text("Clan"), ai = "c";
 				$("#chatInputForm").show(), $("#chatInput").focus(), t && Ke.chatboxWrapper.scrollTop(Ke.chatboxWrapper[0].scrollHeight);
+			}), St.simple_combo(zt.get("toggleHelp"), function() {
+				$("#modal-help").modal("toggle")
 			}), St.register_combo({
-                keys: zt.get("nextAlly"),
-                on_keydown: function() {
-                    Pi && yn && (Pi.target = yn)
-                }
-            }), St.register_combo({
-                keys: zt.get("nextTarget"),
-                on_keydown: function() {
-                    Pi && vn && (Pi.target = vn)
-                }
-            }), St.register_combo({
-                keys: zt.get("walkForward"),
-                on_keydown: function() {
-                    Rt = !0
-                },
-                on_release: function() {
-                    Rt = !1
-                }
-            }), St.register_combo({
-                keys: zt.get("walkBackward"),
-                on_keydown: function() {
-                    Dt = !0
-                },
-                on_release: function() {
-                    Dt = !1
-                }
-            }), St.register_combo({
-                keys: zt.get("walkRight"),
-                on_keydown: function() {
-                    kt = !0
-                },
-                on_release: function() {
-                    kt = !1
-                }
-            }), St.register_combo({
-                keys: zt.get("walkLeft"),
-                on_keydown: function() {
-                    Pt = !0
-                },
-                on_release: function() {
-                    Pt = !1
-                }
-            }), St.register_combo({
-                keys: zt.get("turnLeft"),
-                on_keydown: function() {
-                    Nt = !0
-                },
-                on_release: function() {
-                    Nt = !1
-                }
-            }), St.register_combo({
-                keys: zt.get("turnRight"),
-                on_keydown: function() {
-                    It = !0
-                },
-                on_release: function() {
-                    It = !1
-                }
-            }), St.register_combo({
-                keys: zt.get("walkForward2"),
-                on_keydown: function() {
-                    Rt = !0
-                },
-                on_release: function() {
-                    Rt = !1
-                }
-            }), St.register_combo({
-                keys: zt.get("walkBackward2"),
-                on_keydown: function() {
-                    Dt = !0
-                },
-                on_release: function() {
-                    Dt = !1
-                }
-            }), St.register_combo({
-                keys: zt.get("inventory"),
-                prevent_default: !1,
-                on_release: function() {
-                    Pi && $("#inventory").toggle()
-                }
-            }), St.register_combo({
-                keys: zt.get("character"),
-                prevent_default: !1,
-                on_release: function() {
-                    Pi && $("#characterpanel").toggle()
-                }
-            }), St.simple_combo(zt.get("skill1"), function() {
-                Pi && Pi.useSkill(1)
-            }), St.simple_combo(zt.get("skill2"), function() {
-                Pi && Pi.useSkill(2)
-            }), St.simple_combo(zt.get("skill3"), function() {
-                Pi && Pi.useSkill(3)
-            }), St.simple_combo(zt.get("skill4"), function() {
-                Pi && Pi.useSkill(4)
-            }), St.simple_combo("enter", function() {
-                if (Ke.chatboxWrapper) {
-                    Ge.unLock();
-                    var t = Math.round(Ke.chatboxWrapper[0].scrollHeight - Ke.chatboxWrapper[0].scrollTop) === Math.round(Ke.chatboxWrapper[0].clientHeight);
-                    $("#chatInputForm").show(), $("#chatInput").focus(), t && Ke.chatboxWrapper.scrollTop(Ke.chatboxWrapper[0].scrollHeight)
-                }
-            }), $("#skillButtonKbd1").html(zt.get("skill1")), $("#skillButtonKbd2").html(zt.get("skill2")), $("#skillButtonKbd3").html(zt.get("skill3")), $("#skillButtonKbd4").html(zt.get("skill4"))
-        },
+				keys: zt.get("nextAlly"),
+				on_keydown: function() {
+					Pi && bn && (Pi.target = bn)
+				}
+			}), St.register_combo({
+				keys: zt.get("nextTarget"),
+				on_keydown: function() {
+					Pi && xn && (Pi.target = xn)
+				}
+			}), St.register_combo({
+				keys: zt.get("walkForward"),
+				on_keydown: function() {
+					Rt = !0
+				},
+				on_release: function() {
+					Rt = !1
+				}
+			}), St.register_combo({
+				keys: zt.get("walkBackward"),
+				on_keydown: function() {
+					Dt = !0
+				},
+				on_release: function() {
+					Dt = !1
+				}
+			}), St.register_combo({
+				keys: zt.get("walkRight"),
+				on_keydown: function() {
+					kt = !0
+				},
+				on_release: function() {
+					kt = !1
+				}
+			}), St.register_combo({
+				keys: zt.get("walkLeft"),
+				on_keydown: function() {
+					Pt = !0
+				},
+				on_release: function() {
+					Pt = !1
+				}
+			}), St.register_combo({
+				keys: zt.get("turnLeft"),
+				on_keydown: function() {
+					Nt = !0
+				},
+				on_release: function() {
+					Nt = !1
+				}
+			}), St.register_combo({
+				keys: zt.get("turnRight"),
+				on_keydown: function() {
+					It = !0
+				},
+				on_release: function() {
+					It = !1
+				}
+			}), St.register_combo({
+				keys: zt.get("walkForward2"),
+				on_keydown: function() {
+					Rt = !0
+				},
+				on_release: function() {
+					Rt = !1
+				}
+			}), St.register_combo({
+				keys: zt.get("walkBackward2"),
+				on_keydown: function() {
+					Dt = !0
+				},
+				on_release: function() {
+					Dt = !1
+				}
+			}), St.register_combo({
+				keys: zt.get("inventory"),
+				prevent_default: !1,
+				on_release: function() {
+					Pi && $("#inventory").toggle()
+				}
+			}), St.register_combo({
+				keys: zt.get("character"),
+				prevent_default: !1,
+				on_release: function() {
+					Pi && $("#characterpanel").toggle()
+				}
+			}), St.simple_combo(zt.get("skill1"), function() {
+				Pi && Pi.useSkill(1)
+			}), St.simple_combo(zt.get("skill2"), function() {
+				Pi && Pi.useSkill(2)
+			}), St.simple_combo(zt.get("skill3"), function() {
+				Pi && Pi.useSkill(3)
+			}), St.simple_combo(zt.get("skill4"), function() {
+				Pi && Pi.useSkill(4)
+			}), St.simple_combo("enter", function() {
+				if (Ke.chatboxWrapper) {
+					Ge.unLock();
+					var t = Math.round(Ke.chatboxWrapper[0].scrollHeight - Ke.chatboxWrapper[0].scrollTop) === Math.round(Ke.chatboxWrapper[0].clientHeight);
+					$("#chatInputForm").show(), $("#chatInput").focus(), t && Ke.chatboxWrapper.scrollTop(Ke.chatboxWrapper[0].scrollHeight)
+				}
+			}), $("#skillButtonKbd1").html(zt.get("skill1")), $("#skillButtonKbd2").html(zt.get("skill2")), $("#skillButtonKbd3").html(zt.get("skill3")), $("#skillButtonKbd4").html(zt.get("skill4"))
+		}},
         Ot = !1;
     if ("undefined" != typeof Storage) try {
         x = "__storage_test__", localStorage.setItem(x, x), localStorage.removeItem(x), Ot = !0, console.log("Webstorage found. loading settings..")
