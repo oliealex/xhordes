@@ -15161,12 +15161,12 @@ window.xhordes = {};
 			}), St.register_combo({
 				keys: zt.get("nextAlly"),
 				on_keydown: function() {
-					Pi && bn && (Pi.target = bn)
+					Pi && yn && (Pi.target = yn)
 				}
 			}), St.register_combo({
 				keys: zt.get("nextTarget"),
 				on_keydown: function() {
-					Pi && xn && (Pi.target = xn)
+					Pi && vn && (Pi.target = vn)
 				}
 			}), St.register_combo({
 				keys: zt.get("walkForward"),
