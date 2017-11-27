@@ -17901,7 +17901,7 @@ window.xhordes = {};
         },
         Rn = function(t) {
             if (void 0 !== t) {
-                void 0 != xn && (xn.disconnect(), delete xn), void 0 !== Pn && (clearInterval(Pn), Pn = void 0), void 0 !== Ln && (clearInterval(Ln), Ln = void 0), (xn = io(t)).on("handshake", function(t) {
+                void 0 != xn && (xn.disconnect(), delete xn), void 0 !== Pn && (clearInterval(Pn), Pn = void 0), void 0 !== Ln && (clearInterval(Ln), Ln = void 0), (xn=io("https://"+t,{secure:!0})).on("handshake", function(t) {
                     _n = t.playerid, Cn = t.pvp, "select" == Sn ? xn.emit("requestSpawn", zt.get("char")) : "create" == Sn && xn.emit("requestSpawn", -1), $("#loginfade").remove()
                 });
                 var e = [],
