@@ -1,3 +1,5 @@
+//XHORDES INITIALIZATION: don't forget to declare window.xhordes
+window.xhordes = {};
 ! function(t, n) {
     function r(t, e) {
         for (var i = 0; i < xt.length; i++)
@@ -1327,6 +1329,19 @@
                 case "global":
                     if (!_t(zt.get("chat-chat"))) return;
                     if (i += " chatmsg-global", 0 === t.r && (i += " unreg"), !t.name) return !1;
+					 //XHORDES MUTING/MENTIONING: this is the stuff that makes muted messages hidden and mention messages yellow
+					if (typeof window.xhordes.muted !== "undefined" && !!~window.xhordes.muted.indexOf(t.name)) return; // Checks if player is muted
+					if(e.indexOf("@") !== -1) {
+						var m = e.toLowerCase().split(" ");
+						for(var j = 0; j < m.length; j++) {
+							if(m[j].includes("@")) {
+								var u = m[j].slice(1, m[j].length)
+								if(u == (Pi.name).toString().toLowerCase()) {
+									i += " chatmsg-mention";
+								}
+							}
+						}
+					}
                     e = "[" + t.name + "]: " + e;
                     break;
                 case "gm":
@@ -2002,7 +2017,8 @@
                         for (i = t.length; r < i && !1 !== e.call(t[r], r, t[r]); r++);
                     else
                         for (r in t)
-                            if (!1 === e.call(t[r], r, t[r])) break; return t
+                            if (!1 === e.call(t[r], r, t[r])) break;
+                    return t
                 },
                 trim: function(t) {
                     return null == t ? "" : (t + "").replace(mt, "")
@@ -5012,7 +5028,8 @@
                             if (D = 16 / T.w, L.set(D * S, D), U = t[I], M.set(U.matrixWorld.elements[12], U.matrixWorld.elements[13], U.matrixWorld.elements[14]), M.applyMatrix4(E.matrixWorldInverse), M.applyMatrix4(E.projectionMatrix), P.copy(M), k.x = T.x + P.x * A + A - 8, k.y = T.y + P.y * C + C - 8, !0 === R.containsPoint(k)) {
                                 n.activeTexture(e.TEXTURE0), n.bindTexture(e.TEXTURE_2D, null), n.activeTexture(e.TEXTURE1), n.bindTexture(e.TEXTURE_2D, _), e.copyTexImage2D(e.TEXTURE_2D, 0, e.RGB, k.x, k.y, 16, 16, 0), e.uniform1i(o, 0), e.uniform2f(d, L.x, L.y), e.uniform3f(f, P.x, P.y, P.z), n.disable(e.BLEND), n.enable(e.DEPTH_TEST), e.drawElements(e.TRIANGLES, 6, e.UNSIGNED_SHORT, 0), n.activeTexture(e.TEXTURE0), n.bindTexture(e.TEXTURE_2D, w), e.copyTexImage2D(e.TEXTURE_2D, 0, e.RGBA, k.x, k.y, 16, 16, 0), e.uniform1i(o, 1), n.disable(e.DEPTH_TEST), n.activeTexture(e.TEXTURE1), n.bindTexture(e.TEXTURE_2D, _), e.drawElements(e.TRIANGLES, 6, e.UNSIGNED_SHORT, 0), U.positionScreen.copy(P), U.customUpdateCallback ? U.customUpdateCallback(U) : U.updateLensFlares(), e.uniform1i(o, 2), n.enable(e.BLEND);
                                 for (var F = 0, O = U.lensFlares.length; F < O; F++) {
-                                    var B = U.lensFlares[F];.001 < B.opacity && .001 < B.scale && (P.x = B.x, P.y = B.y, P.z = B.z, D = B.size * B.scale / T.w, L.x = D * S, L.y = D, e.uniform3f(f, P.x, P.y, P.z), e.uniform2f(d, L.x, L.y), e.uniform1f(p, B.rotation), e.uniform1f(h, B.opacity), e.uniform3f(u, B.color.r, B.color.g, B.color.b), n.setBlending(B.blending, B.blendEquation, B.blendSrc, B.blendDst), r.setTexture2D(B.texture, 1), e.drawElements(e.TRIANGLES, 6, e.UNSIGNED_SHORT, 0))
+                                    var B = U.lensFlares[F];
+                                    .001 < B.opacity && .001 < B.scale && (P.x = B.x, P.y = B.y, P.z = B.z, D = B.size * B.scale / T.w, L.x = D * S, L.y = D, e.uniform3f(f, P.x, P.y, P.z), e.uniform2f(d, L.x, L.y), e.uniform1f(p, B.rotation), e.uniform1f(h, B.opacity), e.uniform3f(u, B.color.r, B.color.g, B.color.b), n.setBlending(B.blending, B.blendEquation, B.blendSrc, B.blendDst), r.setTexture2D(B.texture, 1), e.drawElements(e.TRIANGLES, 6, e.UNSIGNED_SHORT, 0))
                                 }
                             }
                         n.enable(e.CULL_FACE), n.enable(e.DEPTH_TEST), n.buffers.depth.setMask(!0), n.reset()
@@ -14548,7 +14565,7 @@
         _t = function(t) {
             return 1 == t || "true" == t
         };
-    yt.loadTexture("../data/terrain/color.jpg"), yt.loadTexture("../data/terrain/heightmap.jpg"), yt.loadTexture("https://rawgit.com/LegusX/xhordes/master/src/secrets/128x128-ffffffff.png"), yt.loadTexture("../data/terrain/grass.png"), yt.loadTexture("../data/terrain/detail.jpg"), yt.loadTexture("../data/terrain/detail2.jpg"), yt.loadTexture("../data/terrain/detail_h.jpg"), yt.loadModel("../data/model/tree"), yt.loadTexture("../data/tree.png"), yt.loadShader("script/shader/grass.vert"), yt.loadShader("script/shader/grass.frag"), yt.loadShader("script/shader/terrain.vert"), yt.loadShader("script/shader/terrain.frag");
+    yt.loadTexture("../data/terrain/color.jpg"), yt.loadTexture("../data/terrain/heightmap.jpg"), yt.loadTexture("../data/terrain/grassmap.png"), yt.loadTexture("../data/terrain/grass.png"), yt.loadTexture("../data/terrain/detail.jpg"), yt.loadTexture("../data/terrain/detail2.jpg"), yt.loadTexture("../data/terrain/detail_h.jpg"), yt.loadModel("../data/model/tree"), yt.loadTexture("../data/tree.png"), yt.loadShader("script/shader/grass.vert"), yt.loadShader("script/shader/grass.frag"), yt.loadShader("script/shader/terrain.vert"), yt.loadShader("script/shader/terrain.frag");
     var wt = function() {
             yt.loadTexture("../data/efx/gradient.jpg"), yt.loadTexture("../data/efx/heal_alpha.jpg"), yt.loadTexture("../data/efx/heal_color.jpg"), yt.loadTexture("../data/efx/ice_color.jpg"), yt.loadTexture("../data/efx/leech_color.jpg"), yt.loadTexture("../data/efx/decay_alpha.jpg"), yt.loadTexture("../data/efx/decay_color.jpg"), yt.loadTexture("../data/efx/swingtest.jpg"), yt.loadTexture("../data/efx/alpha.jpg"), yt.loadTexture("../data/factionA.png"), yt.loadTexture("../data/factionB.png"), yt.loadTexture("../data/items/items.png"), yt.loadModel("../data/model/crown"), yt.loadModel("../data/model/helmet"), yt.loadJSON("../data/items/items.json")
         },
@@ -15067,6 +15084,8 @@
             }
         },
         Tt = {};
+		//XHORDES ITEMSETUP: allows the item code to become global (very important)
+		window.xhordes.Et = Et;
     ki = new Object, Tt.entities = ki;
     var St, At = function(t, e) {
             if (ki.hasOwnProperty(t)) {
@@ -15102,10 +15121,49 @@
                 ("key" in (t = t || window.event) ? "Escape" == t.key : 27 == t.keyCode) && Pi && (Pi.target = void 0)
             }, Ft()
         },
+		//XHORDES Keybindings: toggle various UI elements; view player's name from chat; open global/clan chat directly
         Ft = function() {
-            St.reset(), St.simple_combo(zt.get("toggleHelp"), function() {
+			//this comes in handy later, I promise
+			if(!$("#sys-discord").length){
+				$("#sys-help").after('<button class="btn btn-default systembarbutton" id="sys-discord" type="button"><div class="sys-icon icon-discord"></div></button>');
+			}
+            St.reset(),
+			St.simple_combo(zt.get("toggleHelp"), function() {
+				$("#modal-help").replaceWith('<div class="modal fade in" id="modal-help" tabindex="-1" role="dialog" style="display: block;"><div class="modal-dialog modal-body-base modal-help" role="document"><div class="modal-content"><div class="modal-body"><button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button><h4><div class="sys-icon icon-help iconpanelmod"></div> Help</h4><div><h5>Controls <small>Can be changed with /rebind</small></h5><table class="table controltable"><tbody><tr><td><kbd>W A S D</kbd></td><td class="td-help"> Move around</td></tr><tr><td><kbd>1 2 3 4</kbd></td><td class="td-help"> Use skills on current target</td></tr><tr><td><kbd>B</kbd></td><td class="td-help"> Inventory</td></tr><tr><td><kbd>C</kbd></td><td class="td-help"> Character Panel</td></tr><tr><td><kbd>Left mouse</kbd></td><td class="td-help"> Select a target / Rotate camera</td></tr><tr><td><kbd>Right mouse</kbd></td><td class="td-help"> Look around</td></tr><tr><td><kbd>Tab</kbd></td><td class="td-help"> Next target</td></tr><tr><td><kbd>Shift</kbd></td><td class="td-help"> Next ally</td></tr><tr><td><kbd>F1</kbd></td><td class="td-help"> Toggle help</td></tr><tr><td style = "background-color: #FFCE44"><kbd>X</kbd></td><td class="td-help" style = "background-color: #FFCE44"> Show the XHORDES keys</td></tr></tbody></table><h5>Chat Commands <small>Type into chat to activate</small></h5><table class="table controltable"><tbody><tr><td><kbd>/bindings</kbd></td><td class="td-help"> Show list of current bindings</td></tr><tr><td><kbd>/rebind</kbd></td><td class="td-help"> Change the binding of a key</td></tr><tr><td><kbd>/resetbindings</kbd></td><td class="td-help"> Reset all bindings to default</td></tr><tr><td><kbd>/respawn</kbd></td><td class="td-help"> Suicide and go back to spawn</td></tr></tbody></table></div></div></div></div></div>');
                 $("#modal-help").modal("toggle")
-            }), St.register_combo({
+            }), St.simple_combo(zt.get("toggleXHelp"), function() {
+				$("#modal-help").replaceWith('<div class="modal fade in" id="modal-help" tabindex="-1" role="dialog" style="display: block;"><div class="modal-dialog modal-body-base modal-help" role="document"><div class="modal-content"><div class="modal-body"><button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button><h4><div class="sys-icon icon-help iconpanelmod"></div> Help</h4><div><h5>Controls <small>Can be changed with /rebind</small></h5><table class="table controltable"><tbody><tr><td><kbd>W A S D</kbd></td><td class="td-help"> Move around</td></tr><tr><td><kbd>1 2 3 4</kbd></td><td class="td-help"> Use skills on current target</td></tr><tr><td><kbd>B</kbd></td><td class="td-help"> Inventory</td></tr><tr><td><kbd>C</kbd></td><td class="td-help"> Character Panel</td></tr><tr><td><kbd>Left mouse</kbd></td><td class="td-help"> Select a target / Rotate camera</td></tr><tr><td><kbd>Right mouse</kbd></td><td class="td-help"> Look around</td></tr><tr><td><kbd>Tab</kbd></td><td class="td-help"> Next target</td></tr><tr><td><kbd>Shift</kbd></td><td class="td-help"> Next ally</td></tr><tr><td><kbd>F1</kbd></td><td class="td-help"> Toggle help</td></tr><tr><td style = "background-color: #FFCE44"><kbd>X</kbd></td><td class="td-help" style = "background-color: #FFCE44"> Show the XHORDES keys</td></tr></tbody></table><h5>Chat Commands <small>Type into chat to activate</small></h5><table class="table controltable"><tbody><tr><td><kbd>/bindings</kbd></td><td class="td-help"> Show list of current bindings</td></tr><tr><td><kbd>/rebind</kbd></td><td class="td-help"> Change the binding of a key</td></tr><tr><td><kbd>/resetbindings</kbd></td><td class="td-help"> Reset all bindings to default</td></tr><tr><td><kbd>/respawn</kbd></td><td class="td-help"> Suicide and go back to spawn</td></tr></tbody></table></div></div></div></div></div>');
+                $("#modal-help").modal("toggle")
+            }), St.simple_combo(zt.get("toggleChat"), function() {
+				$("#chatbox").toggle()
+			}),	St.simple_combo(zt.get("toggleLb"), function() {
+				$("#ladder-body").toggle();
+				$("#statistics").toggle();
+			}), St.simple_combo(zt.get("toggleLadder"), function() {
+				$("#ladder-body").toggle();
+			}), St.simple_combo(zt.get("toggleStats"), function() {
+				$("#statistics").toggle();
+			}), St.simple_combo(zt.get("profile"), function() {
+				if(!$(".playerProfile").length) {
+					$("#chatbox").before('<div class="playerProfile"> <h3 class = "profileName"> <div class = "profileClan" style = "color: purple;">[CLAN] </div> PLAYER</h3> <div class = "playerStats"> <button style = "height: auto; width: auto; background-color: rgba(235, 49, 49, 0.84); text-align: center; margin-left: 20%" class = "profileClose">Close</button> <button style = "height: auto; width: auto; background-color: rgba(52, 49, 235, 0.86); text-align: center;" class = "profileView">View Profile</button></div> </div>');
+					}
+				var name = window.getSelection().toString();
+				if(window.getSelection()) {
+					$(".profileName").load('https://hordes.io/player/' + name + ' .col-md-12');
+					$(".playerProfile").css("display", "inline-block");
+					}
+				else {
+					$(".profileName").text("[CLAN]   PLAYER");
+					$(".playerProfile").css("display", "none");
+					}
+				$(".profileClose").click(function() {
+					$(".playerProfile").remove();
+					name = "";
+				});
+				$(".profileView").click(function() {
+					window.open("https://hordes.io/player/" + name, "_blank");
+				});
+			}), St.register_combo({
                 keys: zt.get("nextAlly"),
                 on_keydown: function() {
                     Pi && bn && (Pi.target = bn)
@@ -15214,23 +15272,32 @@
         console.log("Error: Webstorage not working.")
     } else console.log("Error: Webstorage not working.");
     var Bt = {
+		//XHORDES KEYLIST: goes with above keybindings
             skill1: "1",
-            skill2: "2",
-            skill3: "3",
-            skill4: "4",
-            nextTarget: "tab",
-            nextAlly: "shift",
-            walkForward: "w",
-            walkLeft: "a",
-            walkRight: "d",
-            walkBackward: "s",
-            turnLeft: "left",
-            turnRight: "right",
-            walkForward2: "up",
-            walkBackward2: "down",
-            toggleHelp: "f1",
-            inventory: "b",
-            character: "c"
+			skill2: "2",
+			skill3: "3",
+			skill4: "4",
+			nextTarget: "tab",
+			nextAlly: "shift",
+			walkForward: "w",
+			walkLeft: "a",
+			walkRight: "d",
+			walkBackward: "s",
+			turnLeft: "left",
+			turnRight: "right",
+			walkForward2: "up",
+			walkBackward2: "down",
+			toggleHelp: "f1",
+			inventory: "b",
+			character: "c",
+			toggleChat: "f2",
+			globalChat: "g",
+			clanChat: "h",
+			toggleLb: "f3",
+			toggleLadder: "o",
+			toggleStats: "p",
+			toggleXHelp: "x",
+			profile: "t"
         },
         zt = new function() {
             this.get = function(t) {
@@ -15250,6 +15317,10 @@
                 if (e.length <= 0) return !1;
                 var i = e.shift().substring(1),
                     n = t.substring(1);
+				if (typeof localStorage.muted==="string")
+                    try { window.xhordes.muted = JSON.parse(localStorage.muted); }
+                    catch (e) { localStorage.muted = "[]"; window.xhordes.muted = JSON.parse(localStorage.muted); }
+					//XHORDES MUTEJSON: VERY IMPORTANT DO NOT DELETE OR MUTELIST WILL NOT BE SAVED AFTER YOU REFRESH
                 Vt.hasOwnProperty(i) ? Vt[i](e, n) : Q({
                     msg: "Unknown command: " + i,
                     src: "system"
@@ -15298,6 +15369,23 @@
             },
             hideplayer: function() {
                 Pi.geometry.visible = !1, Pi.namesprite.visible = !1, Pi.clansprite.visible = !1
+            },
+			//XHORDES MUTECOMMANDS: mute; unmute; mutelist
+			mute: function(a) {
+                Q({msg: "Muted "+a.join(' ')+" successfully!", src:"system"});
+                // The below line checks if anyone is muted, if not, then it creates an array with their name. Otherwise it pushes to the array.
+                typeof window.xhordes.muted === "undefined" ? window.xhordes.muted = [a.join(" ")] : window.xhordes.muted.push(a.join(" "));
+                localStorage.muted = JSON.stringify(window.xhordes.muted);
+            },
+            unmute: function(a) {
+                var m='';
+                window.xhordes.muted.includes(a.join(' ')) ? ( m = 'Successfully unmuted ' + a.join(' ') ) : ( m = 'Could not find ' + a.join(' ') );
+                Q({msg: m, src: 'system'});
+                window.xhordes.muted = window.xhordes.muted.filter(function(i){return i!==a.join(' ')}); // This removes all instances of the name from the mutelist
+                localStorage.muted = JSON.stringify(window.xhordes.muted);
+            },
+            mutelist: function(a) {
+                Q({msg: "Muted " + (typeof window.xhordes.muted === "object" && window.xhordes.muted.length > 0) ? window.xhordes.muted.join(', ') : "Nobody is muted!", src: 'system'});
             },
             msg: function(t) {
                 if (!(t.length < 1)) {
@@ -15575,8 +15663,6 @@
         t == this.a ? this.aggroA += e : this.aggroB += e
     }, p.prototype.resetAggro = function(t) {
         t == this.a ? this.aggroA = 0 : this.aggroB = 0
-    }, p.prototype.resetOppositeAggro = function(t) {
-        t == this.a ? this.aggroB = 0 : this.aggroA = 0
     }, p.prototype.canFight = function() {
         if (void 0 !== this._canFight) return this._canFight;
         if (this._canFight = !0, Wt && (this.a.isAi && 1 == this.a.class.ai.isresetting && (this._canFight = !1), this.b.isAi && 1 == this.b.class.ai.isresetting && (this._canFight = !1)), !this.a.isAi && !this.b.isAi)
@@ -15743,6 +15829,174 @@
                     if (e.s) {
                         var s = "";
                         e.s.mindmg && e.s.maxdmg && (s += e.s.mindmg + " - " + e.s.maxdmg + " Damage<br>"), e.s.def && (s += e.s.def + " Defense<br>"), e.s.hp && (s += e.s.hp + " HP<br>"), e.s.hpreg && (s += e.s.hpreg + "/s HP Reg. <br>"), e.s.mp && (s += e.s.mp + " MP<br>"), e.s.mpreg && (s += e.s.mpreg + "/s MP Reg. <br>"), e.s.crit && (s += e.s.crit + "% Critical<br>"), e.s.move && (s += e.s.move + " Move speed<br>"), e.s.slots && (s += e.s.slots + " Extra Slots<br>"), ye[i].statText = s
+						//XHORDES ITEMSTATS: displays max stats next to the items and also makes them gold if they are max
+						//very important stuff, probably the main part of xhordes
+						//also some hella crazy code here
+						var items = window.xhordes.Et;
+						var sword = items.sw;
+						var swordmindmg = [], swordmaxdmg = [], swordcrit = [];
+						for(var j = 0; j<sword.lvl.length; j++){
+							swordmindmg.push(Math.round(sword.stats.mindmg.base+(sword.lvl[j]*sword.stats.mindmg.multi*sword.stats.mindmg.high)));
+							swordmaxdmg.push(Math.round(sword.stats.maxdmg.base+(sword.lvl[j]*sword.stats.maxdmg.multi*sword.stats.maxdmg.high)));
+							swordcrit.push(Math.round((sword.stats.crit.base+(sword.lvl[j]*sword.stats.crit.multi*sword.stats.crit.high))*10)/10);
+						}
+						var staff = items.st;
+						var staffmindmg = [], staffmaxdmg = [], staffcrit = [], staffmp = [], staffmpreg = [];
+						for(var j = 0; j<staff.lvl.length; j++){
+							staffmindmg.push(Math.round(staff.stats.mindmg.base+(staff.lvl[j]*staff.stats.mindmg.multi*staff.stats.mindmg.high)));
+							staffmaxdmg.push(Math.round(staff.stats.maxdmg.base+(staff.lvl[j]*staff.stats.maxdmg.multi*staff.stats.maxdmg.high)));
+							staffcrit.push(Math.round((staff.stats.crit.base+(staff.lvl[j]*staff.stats.crit.multi*staff.stats.crit.high))*10)/10);
+							staffmp.push(Math.round(staff.stats.mp.base+(staff.lvl[j]*staff.stats.mp.multi*staff.stats.mp.high)));
+							staffmpreg.push(Math.round((staff.stats.mpreg.base+(staff.lvl[j]*staff.stats.mpreg.multi*staff.stats.mpreg.high))*10)/10);
+						}
+						var hammer = items.hm;
+						var hammermindmg = [], hammermaxdmg = [], hammermpreg = [];
+						for(var j = 0; j<hammer.lvl.length; j++){
+							hammermindmg.push(Math.round(hammer.stats.mindmg.base+(hammer.lvl[j]*hammer.stats.mindmg.multi*hammer.stats.mindmg.high)));
+							hammermaxdmg.push(Math.round(hammer.stats.maxdmg.base+(hammer.lvl[j]*hammer.stats.maxdmg.multi*hammer.stats.maxdmg.high)));
+							hammermpreg.push(Math.round((hammer.stats.mpreg.base+(hammer.lvl[j]*hammer.stats.mpreg.multi*hammer.stats.mpreg.high))*10)/10);
+						}
+						var bow = items.bw;
+						var bowmindmg = [], bowmaxdmg = [], bowcrit = [];
+						for(var j = 0; j<bow.lvl.length; j++){
+							bowmindmg.push(Math.round(bow.stats.mindmg.base+(bow.lvl[j]*bow.stats.mindmg.multi*bow.stats.mindmg.high)));
+							bowmaxdmg.push(Math.round(bow.stats.maxdmg.base+(bow.lvl[j]*bow.stats.maxdmg.multi*bow.stats.maxdmg.high)));
+							bowcrit.push(Math.round((bow.stats.crit.base+(bow.lvl[j]*bow.stats.crit.multi*bow.stats.crit.high))*10)/10);
+						}
+						var armor = items.ar;
+						var armordef = [], armorhp = [], armorhpreg = [];
+						for(var j = 0; j<armor.lvl.length; j++){
+							armordef.push(Math.round(armor.stats.def.base+(armor.lvl[j]*armor.stats.def.multi*armor.stats.def.high)));
+							armorhp.push(Math.round(armor.stats.hp.base+(armor.lvl[j]*armor.stats.hp.multi*armor.stats.hp.high)));
+							armorhpreg.push(Math.round((armor.stats.hpreg.base+(armor.lvl[j]*armor.stats.hpreg.multi*armor.stats.hpreg.high))*10)/10);
+						}
+						var glove = items.gl;
+						var glovecrit = [], glovedef = [], glovehp = [];
+						for(var j = 0; j<glove.lvl.length; j++){
+							glovecrit.push(Math.round((glove.stats.crit.base+(glove.lvl[j]*glove.stats.crit.multi*glove.stats.crit.high))*10)/10);
+							glovedef.push(Math.round(glove.stats.def.base+(glove.lvl[j]*glove.stats.def.multi*glove.stats.def.high)));
+							glovehp.push(Math.round(glove.stats.hp.base+(glove.lvl[j]*glove.stats.hp.multi*glove.stats.hp.high)));
+						}
+						var armlet = items.al;
+						var armletdef = [], armlethp = [], armletmp = [], armletmpreg = [];
+						for(var j = 0; j<armlet.lvl.length; j++){
+							armletdef.push(Math.round(armlet.stats.def.base+(armlet.lvl[j]*armlet.stats.def.multi*armlet.stats.def.high)));
+							armlethp.push(Math.round(armlet.stats.hp.base+(armlet.lvl[j]*armlet.stats.hp.multi*armlet.stats.hp.high)));
+							armletmp.push(Math.round(armlet.stats.mp.base+(armlet.lvl[j]*armlet.stats.mp.multi*armlet.stats.mp.high)));
+							armletmpreg.push(Math.round((armlet.stats.mpreg.base+(armlet.lvl[j]*armlet.stats.mpreg.multi*armlet.stats.mpreg.high))*10)/10);
+						}
+						var boot = items.bt;
+						var bootdef = [], boothp = [], bootmove = [];
+						for(var j = 0; j<boot.lvl.length; j++){
+							bootdef.push(Math.round(boot.stats.def.base+(boot.lvl[j]*boot.stats.def.multi*boot.stats.def.high)));
+							boothp.push(Math.round(boot.stats.hp.base+(boot.lvl[j]*boot.stats.hp.multi*boot.stats.hp.high)));
+							bootmove.push(Math.round((boot.stats.move.base+(boot.lvl[j]*boot.stats.move.multi*boot.stats.move.high))*10)/10);
+						}
+						var ring = items.ri;
+						var ringhpreg = [], ringmpreg = [];
+						for(var j = 0; j<ring.lvl.length; j++){
+							ringmpreg.push(Math.round((ring.stats.mpreg.base+(ring.lvl[j]*ring.stats.mpreg.multi*ring.stats.mpreg.high))*10)/10);
+							ringhpreg.push(Math.round((ring.stats.hpreg.base+(ring.lvl[j]*ring.stats.hpreg.multi*ring.stats.hpreg.high))*10)/10);
+						}
+						var bag = items.bg;
+						var bagslots = [];
+						for(var j = 0; j<bag.lvl.length; j++){
+							bagslots.push(Math.round(bag.lvl[j]*bag.stats.slots.multi*bag.stats.slots.high));
+						}
+						var quiver = items.qv;
+						var quivercrit = [], quivermove = [];
+						for(var j = 0; j<quiver.lvl.length; j++){
+							quivermove.push(Math.round((quiver.stats.move.base+(quiver.lvl[j]*quiver.stats.move.multi*quiver.stats.move.high))*10)/10);
+							quivercrit.push(Math.round((quiver.stats.crit.base+(quiver.lvl[j]*quiver.stats.crit.multi*quiver.stats.crit.high))*10)/10);
+						}
+						var shield = items.sh;
+						var shielddef = [], shieldhp = [], shieldhpreg = [];
+						for(var j = 0; j<shield.lvl.length; j++){
+							shielddef.push(Math.round(shield.stats.def.base+(shield.lvl[j]*shield.stats.def.multi*shield.stats.def.high)));
+							shieldhp.push(Math.round(shield.stats.hp.base+(shield.lvl[j]*shield.stats.hp.multi*shield.stats.hp.high)));
+							shieldhpreg.push(Math.round((shield.stats.hpreg.base+(shield.lvl[j]*shield.stats.hpreg.multi*shield.stats.hpreg.high))*10)/10);
+						}
+						var talisman = items.ta;
+						var talismanmp = [], talismanmpreg = [];
+						for(var j = 0; j<talisman.lvl.length; j++){
+							talismanmp.push(Math.round(talisman.stats.mp.base+(talisman.lvl[j]*talisman.stats.mp.multi*talisman.stats.mp.high)));
+							talismanmpreg.push(Math.round((talisman.stats.mpreg.base+(talisman.lvl[j]*talisman.stats.mpreg.multi*talisman.stats.mpreg.high))*10)/10);
+						}
+						/*
+						
+						Item stat debugging
+						
+						console.log("sword min dmg: " + swordmindmg,  "sword max dmg: " + swordmaxdmg,  "sword crit: " + swordcrit, "staff min dmg: " + staffmindmg, "staff max dmg: " + staffmaxdmg, "staff crit: " + staffcrit, " staff mp: " + staffmp, "staff mp reg: " + staffmpreg, "hammer min dmg: " +  hammermindmg, "hammer max dmg: " +  hammermaxdmg, "hammer mp reg: " + hammermpreg, "bow min dmg: " + bowmindmg, "bow max dmg: " + bowmaxdmg, "bow crit: " + bowcrit, "armor def:" +  armordef, "armor hp: " + armorhp, "armor hpreg: " + armorhpreg, "glove crit: " + glovecrit, "glove def: " + glovedef, "glove hp: " + glovehp, "armlet def: " + armletdef, "armlet hp: " + armlethp, "armlet mp: " + armletmp, "armlet mp reg: " + armletmpreg, "boot def: " +  bootdef, "boot hp: " + boothp, "boot move: " + bootmove, "ring hp reg: " + ringhpreg, "ring mp reg: " + ringmpreg, "bag slots: " + bagslots, "quiver move: " + quivermove, "quiver crit: " + quivercrit, "shield def: " + shielddef, "shield hp: " + shieldhp, "shield hp reg: " + shieldhpreg, "talisman mp: " + talismanmp, "talisman mp reg: " + talismanmpreg);
+						
+						*/
+						var xItem = {};
+						if (sword.name.includes(e.name)) {
+						  xItem.mindmg = swordmindmg[sword.name.indexOf(e.name)];
+						  xItem.maxdmg = swordmaxdmg[sword.name.indexOf(e.name)];
+						  xItem.crit = swordcrit[sword.name.indexOf(e.name)];
+						} else if (staff.name.includes(e.name)) {
+						  xItem.mindmg = staffmindmg[staff.name.indexOf(e.name)];
+						  xItem.maxdmg = staffmaxdmg[staff.name.indexOf(e.name)];
+						  xItem.crit = staffcrit[staff.name.indexOf(e.name)];
+						  xItem.mp = staffmp[staff.name.indexOf(e.name)];
+						  xItem.mpreg = staffmpreg[staff.name.indexOf(e.name)];
+						} else if (hammer.name.includes(e.name)) {
+						  xItem.mindmg = hammermindmg[hammer.name.indexOf(e.name)];
+						  xItem.maxdmg = hammermaxdmg[hammer.name.indexOf(e.name)];
+						  xItem.mpreg = hammermpreg[hammer.name.indexOf(e.name)];
+						} else if (bow.name.includes(e.name)) {
+						  xItem.mindmg = bowmindmg[bow.name.indexOf(e.name)];
+						  xItem.maxdmg = bowmaxdmg[bow.name.indexOf(e.name)];
+						  xItem.crit = bowcrit[bow.name.indexOf(e.name)];
+						} else if (armor.name.includes(e.name)) {
+						  xItem.hp = armorhp[armor.name.indexOf(e.name)];
+						  xItem.def = armordef[armor.name.indexOf(e.name)];
+						  xItem.hpreg = armorhpreg[armor.name.indexOf(e.name)];
+						} else if (glove.name.includes(e.name)) {
+						  xItem.def = glovedef[glove.name.indexOf(e.name)];
+						  xItem.crit = glovecrit[glove.name.indexOf(e.name)];
+						  xItem.hp = glovehp[glove.name.indexOf(e.name)];
+						} else if (armlet.name.includes(e.name)) {
+						  xItem.def = armletdef[armlet.name.indexOf(e.name)];
+						  xItem.hp = armlethp[armlet.name.indexOf(e.name)];
+						  xItem.mp = armletmp[armlet.name.indexOf(e.name)];
+						  xItem.mpreg = armletmpreg[armlet.name.indexOf(e.name)];
+						} else if (boot.name.includes(e.name)) {
+						  xItem.def = bootdef[boot.name.indexOf(e.name)];
+						  xItem.hp = boothp[boot.name.indexOf(e.name)];
+						  xItem.move = bootmove[boot.name.indexOf(e.name)];
+						} else if (ring.name.includes(e.name)) {
+						  xItem.hpreg = ringhpreg[ring.name.indexOf(e.name)];
+						  xItem.mpreg = ringmpreg[ring.name.indexOf(e.name)];
+						} else if (bag.name.includes(e.name)) {
+						  xItem.slots = bagslots[bag.name.indexOf(e.name)];
+						} else if (quiver.name.includes(e.name)) {
+						  xItem.crit = quivercrit[quiver.name.indexOf(e.name)];
+						  xItem.move = quivermove[quiver.name.indexOf(e.name)];
+						} else if (shield.name.includes(e.name)) {
+						  xItem.def = shielddef[shield.name.indexOf(e.name)];
+						  xItem.hp = shieldhp[shield.name.indexOf(e.name)];
+						  xItem.hpreg = shieldhpreg[shield.name.indexOf(e.name)];
+						} else if (talisman.name.includes(e.name)) {
+						  xItem.mp = talismanmp[talisman.name.indexOf(e.name)];
+						  xItem.mpreg = talismanmpreg[talisman.name.indexOf(e.name)];
+						} else {
+						  xItem.mindmg = "???";
+						  xItem.maxdmg = "???";
+						  xItem.def = "???";
+						  xItem.hp = "???";
+						  xItem.hpreg = "???";
+						  xItem.mp = "???";
+						  xItem.mpreg = "???";
+						  xItem.crit = "???";
+						  xItem.move = "???";
+						  xItem.slots = "???";
+						}
+						e.s.dmgtext = e.s.mindmg + "-" + e.s.maxdmg;
+						xItem.dmg = xItem.mindmg + "-" + xItem.maxdmg;
+						var f = "";
+						e.s.mindmg && e.s.maxdmg && (f += "<span "+((e.s.dmgtext == xItem.dmg) ? 'style="color: #ffbd24;">' : ">") +e.s.mindmg + " - " + e.s.maxdmg + " Damage</span> <span><span style='color: #18A15F'><strong>(Max: "+xItem.dmg+")</strong></span></span><br>"), e.s.def && (f += "<span "+((e.s.def == xItem.def) ? 'style="color: #ffbd24;">' : ">")+e.s.def + " Defense</span> <span><span style='color: #18A15F'><strong>(Max: "+xItem.def+")</strong></span></span><br>"), e.s.hp && (f += "<span "+((e.s.hp == xItem.hp) ? "style='color: #ffbd24;'>" : ">")+e.s.hp + " HP</span> <span><span style='color: #18A15F'><strong>(Max: "+xItem.hp+")</strong></span></span><br>"), e.s.hpreg && (f += "<span "+((e.s.hpreg == xItem.hpreg) ? 'style="color: #ffbd24;">' : ">")+e.s.hpreg + "/s HP Reg.</span> <span><span style='color: #18A15F'><strong>(Max: "+xItem.hpreg+")</strong></span></span><br>"), e.s.mp && (f += "<span "+((e.s.mp == xItem.mp) ? 'style="color: #ffbd24;">' : ">")+e.s.mp + " MP</span> <span><span style='color: #18A15F'><strong>(Max: "+xItem.mp+")</strong></span></span><br>"), e.s.mpreg && (f += "<span "+((e.s.mpreg == xItem.mpreg) ? 'style="color: #ffbd24;">' : ">")+e.s.mpreg + "/s MP Reg.</span> <span><span style='color: #18A15F'><strong>(Max: "+xItem.mpreg+")</strong></span></span><br>"), e.s.crit && (f += "<span "+((e.s.crit == xItem.crit) ? 'style="color: #ffbd24;">' : ">")+e.s.crit + "% Critical</span> <span><span style='color: #18A15F'><strong>(Max: "+xItem.crit+"%)</strong></span></span><br>"), e.s.move && (f += "<span "+((e.s.move == xItem.move) ? 'style="color: #ffbd24;">' : ">")+e.s.move + " Move speed</span> <span><span style='color: #18A15F'><strong>(Max: "+xItem.move+")</strong></span></span>"), e.s.slots && (f += "<span "+((e.s.slots == xItem.slots) ? 'style="color: #ffbd24;">' : ">")+e.s.slots + " Extra Slots</span> <span><span style='color: #18A15F'><strong>(Max: "+xItem.slots+")</strong></span></span>");
+						ye[i].statText = f;
                     }
                     ye[i].minlvl = Et[e.u].lvl[e.t], ye[i].l && (xe[ye[i].l] = ye[i])
                 }
@@ -16341,7 +16595,8 @@
                         break;
                     case 6:
                             this.head = new THREE.Mesh(gt.crown.children[0].geometry, Wi.gold)
-                } else this.head = new THREE.Mesh(gt.crown.children[0].geometry, Wi.obsidian);
+                }
+                else this.head = new THREE.Mesh(gt.crown.children[0].geometry, Wi.obsidian);
                 this.head && (this.head.position.copy(this.class.headGearOffset), this.head.scale.copy(this.class.headGearOffsetScale), this.chest.add(this.head))
         }
     };
@@ -16394,9 +16649,7 @@
         }, this.onMouseUp = function(e) {
             switch (e.button) {
                 case 0:
-                    t.lmb = !1, performance.now() - this.lmbLastDownTime < 300 && void 0 != $i && void 0 != Pi && ($i.drop ? $i.requestPickUp() : (Pi.target = $i, "vendor" == Pi.target.class.type && Pi && Pi.canSellToTrader() && !Ne && (console.log("vendor opened"), $("#trader").centerMe(-100, -100), $("#trader").show(), $("#traderAd").centerMe(400, -100), $("#traderAd").show(), $("#inventory").show(), Ne = !0, aiptag.cmd.display.push(function() {
-                        aipDisplayTag.refresh("hordes-io_300x250")
-                    }))));
+                    t.lmb = !1, performance.now() - this.lmbLastDownTime < 300 && void 0 != $i && void 0 != Pi && ($i.drop ? $i.requestPickUp() : (Pi.target = $i, "vendor" == Pi.target.class.type && Pi && Pi.canSellToTrader() && ($("#trader").centerMe(0, -100), $("#trader").show(), $("#inventory").show(), Ne = !0)));
                     break;
                 case 3:
                 case 2:
@@ -16428,7 +16681,7 @@
                 document.pointerLockElement === We || document.mozPointerLockElement === We || document.webkitPointerLockElement === We ? (Ge.locked = !0, document.addEventListener("mousemove", Ge.mouseMove_locked, !1), document.removeEventListener("mousemove", Ge.mouseMove_unlocked, !1)) : (Ge.locked = !1, document.addEventListener("mousemove", Ge.mouseMove_unlocked, !1), document.removeEventListener("mousemove", Ge.mouseMove_locked, !1))
             };
         document.addEventListener("pointerlockchange", Xe, !1), document.addEventListener("mozpointerlockchange", Xe, !1), document.addEventListener("webkitpointerlockchange", Xe, !1)
-    }
+    } else console.log("ERROR: Your browser does seems to not support the pointer lock API.");
     var $e = void 0,
         Ye = !0,
         Ze = void 0,
@@ -16470,11 +16723,14 @@
         ai = "g";
     createUi = function(t) {
         var e = document.body;
-        Je.player = new TargetPanel($("#upperLeftContainer"), "You"), Je.target = new TargetPanel($("#upperLeftContainer"), "Target"), ri.claninvite = $("<button style='position:absolute; top: 0px; right: -32px;' class='btn btn-default btn-xs'><img style='width: 15px;margin: 3px;' src='data/icons/horde.png'></img></button>").appendTo(Je.target.panel), ri.claninvite.on("click", function(t) {
+        Je.player = new TargetPanel($("#upperLeftContainer"), "You"),
+		Je.target = new TargetPanel($("#upperLeftContainer"), "Target"),
+		ri.claninvite = $("<button style='position:absolute; top: 0px; right: -32px;' class='btn btn-default btn-xs'><img style='width: 15px;margin: 3px;' src='data/icons/horde.png'></img></button>").appendTo(Je.target.panel), ri.claninvite.on("click", function(t) {
             Pi && void 0 !== Pi.target && Pi.target.faction == Pi.faction && _n.emit("ca", {
                 a: "invite"
             })
-        }), $("<p/>", {
+        }),
+		$("<p/>", {
             class: "resourcesText",
             style: "float:left",
             id: "invtrashcan"
@@ -16530,7 +16786,13 @@
             t != zt.get("char") && (zt.set("char", t), Fn())
         }), $("#sys-help").on("click", function() {
             $("#modal-help").modal("show")
-        }), $("#sys-inventory").on("click", function() {
+        }), //XHORDES DISCORDLINK: adds link to hordes.io and xhordes discord (even though most people come from the discord)
+			$("#sys-discord").on("click", function() {
+			if(!$("#modal-discord").length){
+				$("#modal-setnick").after('<div class="modal fade" id="modal-discord" tabindex="-1" role="dialog"> <div class="modal-dialog modal-body-base modal-user" role="document"> <div class="modal-content"> <div class="modal-body"><button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button> <h4> <img src = "https://discordapp.com/assets/94db9c3c1eba8a38a1fcf4f223294185.png" alt = "Discord" height = "75px" width = "250px"></img></h4> <h5 class="text-center detailText"> <a href="https://discord.gg/z78gnNe" line-height = "200px">Join the XHORDES Discord! <img src="https://i.imgur.com/Yn2YW2Q.png" alt="XHORDES" height="64px" width="64px"></img></a><br/> <br/><a href="https://discord.gg/bY2vFzg" line-height = "200px">Join the Hordes.io Discord! <img src="https://hordes.io/icon.png" alt="Hordes.io" height="48px" width="48px"></img></a></h5></div></div></div></div>');
+			}
+			$("#modal-discord").modal("show")
+		}), $("#sys-inventory").on("click", function() {
             $("#inventory").toggle()
         }), $("#sys-charpanel").on("click", function() {
             $("#characterpanel").toggle()
@@ -16636,7 +16898,7 @@
             hide: !0
         }), Je.target.update({
             hide: !0
-        })), Ge.mouseElement == ci && $i == li || (ci = Ge.mouseElement, li = $i, null == Ge.mouseElement ? void 0 != $i ? (Ke.infoPanel.html($i.getInfoPanelString()), hi && (Ke.infoPanel.stop(!0, !0), Ke.infoPanel.show(), hi = !1)) : hi || (Ke.infoPanel.stop(!0, !0), Ke.infoPanel.fadeOut(400), hi = !0) : ei.hasOwnProperty(Ge.mouseElement) ? (Ke.infoPanel.html(ei[Ge.mouseElement]), hi && (Ke.infoPanel.stop(!0, !0), Ke.infoPanel.show(), hi = !1)) : hi || (Ke.infoPanel.stop(!0, !0), Ke.infoPanel.fadeOut(400), hi = !0)), Ne && Pi && !Pi.canSellToTrader() && ($("#trader").hide(), $("#traderAd").hide(), Ne = !1))
+        })), Ge.mouseElement == ci && $i == li || (ci = Ge.mouseElement, li = $i, null == Ge.mouseElement ? void 0 != $i ? (Ke.infoPanel.html($i.getInfoPanelString()), hi && (Ke.infoPanel.stop(!0, !0), Ke.infoPanel.show(), hi = !1)) : hi || (Ke.infoPanel.stop(!0, !0), Ke.infoPanel.fadeOut(400), hi = !0) : ei.hasOwnProperty(Ge.mouseElement) ? (Ke.infoPanel.html(ei[Ge.mouseElement]), hi && (Ke.infoPanel.stop(!0, !0), Ke.infoPanel.show(), hi = !1)) : hi || (Ke.infoPanel.stop(!0, !0), Ke.infoPanel.fadeOut(400), hi = !0)), Ne && Pi && !Pi.canSellToTrader() && ($("#trader").hide(), Ne = !1))
     };
     var di = function(t, e) {
             Ke.ladder[t](e), Ke.chatbox[t](e), Ke.expbarcontainer[t](e), Ke.infoPanel[t](e), Ke.skillbar[t](e), Ke.statistics[t](e), Ke.castbarcontainer[t](e), Je.player.panel[t](e), Je.target.panel[t](e), Ke.sysbar[t](e)
@@ -16649,13 +16911,31 @@
         mi = function(t) {
             ni = t, $("nav").fadeOut(300), $("#loginfade").fadeOut(300, function() {
                 $("#renderer").fadeOut(300, function() {
-                    void 0 !== adplayer && "undefined" != typeof aipPlayer && Date.now() - parseInt(zt.get("lastAd")) > 3e5 ? aiptag.cmd.player.push(function() {
-                        adplayer.startPreRoll()
-                    }) : ni()
+                    "undefined" != typeof aipPlayer && Date.now() - parseInt(zt.get("lastAd")) > 3e5 ? adplayer.startPreRoll() : ni()
                 })
             })
         };
-    ii = function() {
+    ! function(t, e) {
+        var i = document.head || document.getElementsByTagName("head")[0],
+            n = document.createElement("script"),
+            r = !0;
+        n.async = "async", n.type = "text/javascript", n.charset = "UTF-8", n.src = t, n.onload = n.onreadystatechange = function() {
+            !r || n.readyState && !/loaded|complete/.test(n.readyState) || (r = !1, e(), n.onload = n.onreadystatechange = null)
+        }, i.appendChild(n)
+    }("//api.adinplay.com/player/v2/HRD/hordes.io/player.min.js", function() {
+        "undefined" != typeof aipPlayer && (adplayer = new aipPlayer({
+            AD_WIDTH: 960,
+            AD_HEIGHT: 540,
+            AD_FULLSCREEN: !1,
+            AD_CENTERPLAYER: !1,
+            LOADING_TEXT: "loading advertisement",
+            PREROLL_ELEM: document.getElementById("preroll"),
+            AIP_COMPLETE: function() {
+                ii()
+            },
+            AIP_REMOVE: function() {}
+        }))
+    }), ii = function() {
         ni(), zt.set("lastAd", Date.now())
     }, $.fn.centerMe = function(t, e) {
         this.css("left", $(window).width() / 2 - $(this).width() / 2 + t), this.css("top", $(window).height() / 2 - $(this).height() / 2 + e)
@@ -16694,7 +16974,7 @@
             }).appendTo(h),
             d = $("<p/>", {
                 class: "targettext targethealthtext",
-                text: "1 / 1"
+                text: "1321 / 2384"
             }).appendTo(h),
             p = $("<div/>", {
                 class: "progress mpbarbg"
@@ -17157,21 +17437,8 @@
             }, 300);
         (Ei = new THREE.WebGLRenderer({
             antialias: !0
-        })).autoClear = !1, Ei.domElement.dataset.mouselock = !0, Ei.domElement.id = "renderer", $(Ei.domElement).insertBefore("#loginfade"), aiptag.cmd.display.push(function() {
-            aipDisplayTag.display("hordes-io_300x250")
-        }), aiptag.cmd.player.push(function() {
-            adplayer = new aipPlayer({
-                AD_WIDTH: 960,
-                AD_HEIGHT: 540,
-                AD_FULLSCREEN: !0,
-                AD_CENTERPLAYER: !1,
-                LOADING_TEXT: "loading advertisement",
-                PREROLL_ELEM: document.getElementById("preroll"),
-                AIP_COMPLETE: function() {
-                    ii()
-                },
-                AIP_REMOVE: function() {}
-            })
+        })).autoClear = !1, Ei.domElement.dataset.mouselock = !0, Ei.domElement.id = "renderer", $(Ei.domElement).insertBefore("#loginfade"), googletag.cmd.push(function() {
+            googletag.display("div-gpt-ad-1506082995443-0")
         }), yt.onFinish(function() {
             tn(), Ki = !0, wt(), yt.onFinish(function() {
                 createUi(Ei.domElement), di("hide"), nn(), en()
@@ -17589,11 +17856,7 @@
         Dn()
     });
     var Dn = function() {
-            (wn = "localhost" == document.location.hostname ? io("https://localhost:8123", {
-                secure: !0
-            }) : io("https://hordes.io", {
-                secure: !0
-            })).on("h", function() {
+            (wn = "localhost" == document.location.hostname ? io("localhost:8123") : io("hordes.io")).on("h", function() {
                 Ji = !0, "select" === Cn && wn.emit("auth", {
                     id: zt.get("char"),
                     rc: !0
@@ -17651,7 +17914,7 @@
                 void 0 != _n && (_n.disconnect(), delete _n), void 0 !== Rn && (clearInterval(Rn), Rn = void 0), void 0 !== kn && (clearInterval(kn), kn = void 0), (_n = io("https://" + t, {
                     secure: !0
                 })).on("handshake", function(t) {
-                    Mn = t.playerid, Pn = t.pvp, "select" == Cn ? _n.emit("requestSpawn", zt.get("char")) : "create" == Cn && _n.emit("requestSpawn", -1), $("#hordes-io_300x250").appendTo("#traderAd"), $("#loginfade").remove()
+                    Mn = t.playerid, Pn = t.pvp, "select" == Cn ? _n.emit("requestSpawn", zt.get("char")) : "create" == Cn && _n.emit("requestSpawn", -1), $("#loginfade").remove()
                 });
                 var e = [],
                     i = 5,
