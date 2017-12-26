@@ -2,7 +2,7 @@
 window.xhordes = {};
 //pi.class.type
 xhordes.levelup = function(){
-	alert(Pi.class.type)
+	Q({msg:Pi.class.type, src:"system"})
 }
 ! function(t, n) {
     function r(t, e) {
