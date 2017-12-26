@@ -1,9 +1,9 @@
 //XHORDES INITIALIZATION: don't forget to declare window.xhordes
 window.xhordes = {};
 //pi.class.type
-window.xhordes.levelup = function(){
-	Q({msg:Pi.class.type, src:"system"});
-}
+// window.xhordes.levelup = function(){
+	// Q({msg:Pi.class.type, src:"system"});
+// }
 ! function(t, n) {
     function r(t, e) {
         for (var i = 0; i < xt.length; i++)
