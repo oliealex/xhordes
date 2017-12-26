@@ -15501,7 +15501,7 @@ window.xhordes.levelup = function(){
             if (Qt(t, "level", "lvl", this.class) && (this == Pi && o < this.class.level && (Q({
                     msg: "You have reached level " + this.class.level + "!",
                     src: "system"
-                }), Ce.lvl.text(this.class.level), window.xhordes.levelup()), this.levelsprite._text = this.class.level, this.levelsprite.updateText(), Pi && (this != Pi ? this.canFightPlayer = re(this, Pi).canFight() : mn())), this.isPlayer) {
+                }), Ce.lvl.text(this.class.level)/*, window.xhordes.levelup()*/), this.levelsprite._text = this.class.level, this.levelsprite.updateText(), Pi && (this != Pi ? this.canFightPlayer = re(this, Pi).canFight() : mn())), this.isPlayer) {
                 Qt(t, "gold", "g", this), t.g && Ke.gold.text(t.g), t.gd && Q({
                     msg: (t.gd > 0 ? "Gained " : "Lost ") + Math.abs(t.gd) + " $g",
                     src: "loot"
