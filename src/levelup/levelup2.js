@@ -1377,7 +1377,7 @@ else window.xhordes.filter = JSON.parse(localStorage.filter);
         Ke.castbar && Pi && 1 == Pi.state.id ? (t = 100 - Pi.state.duration / Pi.state.maxduration * 100, Ke.castbarcontainer.show()) : (Ke.castbarcontainer.hide(), t = 0), Ke.castbar.css("width", t + "%")
     }
 		function BAJS(t) {
-				alert(this->getWorldPosition)
+			console.log(this->getWorldPosition())
 		}
 
     function Q(t) {
