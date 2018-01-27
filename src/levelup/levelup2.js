@@ -2,7 +2,7 @@
 window.xhordes = {
 	levelup: function(player){
 		// var localStorage = window.localStorage
-		alert(player.getWorldPosition())
+		console.log("TESTING")
 		if (typeof localStorage.levelsenabled === "undefined") {
 			localStorage.levelsenabled = "true"
 		}
