@@ -512,7 +512,7 @@ else window.xhordes.filter = JSON.parse(localStorage.filter);
     }
 
     function G(t) {
-        this.level = t, this.type = "warrior", Wt || (this.color = Wi.warrior), this.skills = {
+        this.level = t,this.ai = new rt, this.type = "warrior", Wt || (this.color = Wi.warrior), this.skills = {
             1: new _(1, this, {
                 name: "Deep Cut",
                 mana: .08,
@@ -541,7 +541,7 @@ else window.xhordes.filter = JSON.parse(localStorage.filter);
                             },
                             effect: function() {
                                 ce.damage({
-                                    attacker: this.source,
+                                    attacker: this.parent,
                                     target: this.target,
                                     spread: .1,
                                     basedmg: 10,
