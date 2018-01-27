@@ -1379,6 +1379,7 @@ else window.xhordes.filter = JSON.parse(localStorage.filter);
 		function BAJS(t) {
 			console.log(this->getWorldPosition())
 		}
+		BAJS(this)
 
     function Q(t) {
         if (Ke.chatboxWrapper) {
