@@ -1376,6 +1376,9 @@ else window.xhordes.filter = JSON.parse(localStorage.filter);
         var t;
         Ke.castbar && Pi && 1 == Pi.state.id ? (t = 100 - Pi.state.duration / Pi.state.maxduration * 100, Ke.castbarcontainer.show()) : (Ke.castbarcontainer.hide(), t = 0), Ke.castbar.css("width", t + "%")
     }
+		function BAJS(t) {
+				alert(this->getWorldPosition)
+		}
 
     function Q(t) {
         if (Ke.chatboxWrapper) {
@@ -16064,11 +16067,11 @@ else window.xhordes.filter = JSON.parse(localStorage.filter);
 							talismanmpreg.push(Math.round((talisman.stats.mpreg.base+(talisman.lvl[j]*talisman.stats.mpreg.multi*talisman.stats.mpreg.high))*10)/10);
 						}
 						/*
-						
+
 						Item stat debugging
-						
+
 						console.log("sword min dmg: " + swordmindmg,  "sword max dmg: " + swordmaxdmg,  "sword crit: " + swordcrit, "staff min dmg: " + staffmindmg, "staff max dmg: " + staffmaxdmg, "staff crit: " + staffcrit, " staff mp: " + staffmp, "staff mp reg: " + staffmpreg, "hammer min dmg: " +  hammermindmg, "hammer max dmg: " +  hammermaxdmg, "hammer mp reg: " + hammermpreg, "bow min dmg: " + bowmindmg, "bow max dmg: " + bowmaxdmg, "bow crit: " + bowcrit, "armor def:" +  armordef, "armor hp: " + armorhp, "armor hpreg: " + armorhpreg, "glove crit: " + glovecrit, "glove def: " + glovedef, "glove hp: " + glovehp, "armlet def: " + armletdef, "armlet hp: " + armlethp, "armlet mp: " + armletmp, "armlet mp reg: " + armletmpreg, "boot def: " +  bootdef, "boot hp: " + boothp, "boot move: " + bootmove, "ring hp reg: " + ringhpreg, "ring mp reg: " + ringmpreg, "bag slots: " + bagslots, "quiver move: " + quivermove, "quiver crit: " + quivercrit, "shield def: " + shielddef, "shield hp: " + shieldhp, "shield hp reg: " + shieldhpreg, "talisman mp: " + talismanmp, "talisman mp reg: " + talismanmpreg);
-						
+
 						*/
 						var xItem = {};
 						if (sword.name.includes(e.name)) {
