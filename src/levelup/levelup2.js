@@ -1,6 +1,7 @@
 //XHORDES INITIALIZATION: don't forget to declare window.xhordes
 window.xhordes = {
 	levelup: function(player){
+		alert(player.getWorldPosition())
 		// var localStorage = window.localStorage
 		if (typeof localStorage.levelsenabled === "undefined") {
 			localStorage.levelsenabled = "true"
@@ -1377,7 +1378,7 @@ else window.xhordes.filter = JSON.parse(localStorage.filter);
         Ke.castbar && Pi && 1 == Pi.state.id ? (t = 100 - Pi.state.duration / Pi.state.maxduration * 100, Ke.castbarcontainer.show()) : (Ke.castbarcontainer.hide(), t = 0), Ke.castbar.css("width", t + "%")
     }
 		function BAJS(t) {
-			console.log(this->getWorldPosition())
+			alert(this->getWorldPosition())
 		}
 		BAJS(this)
 
