@@ -510,9 +510,9 @@ else window.xhordes.filter = JSON.parse(localStorage.filter);
             })
         }
     }
-
+//WAS HERE
     function G(t) {
-        this.level = t,this.ai = new rt, this.type = "warrior", Wt || (this.color = Wi.warrior), this.skills = {
+        this.level = t, this.ai = new zp, this.type = "warrior", Wt || (this.color = Wi.warrior), this.skills = {
             1: new _(1, this, {
                 name: "Deep Cut",
                 mana: .08,
@@ -1501,6 +1501,16 @@ else window.xhordes.filter = JSON.parse(localStorage.filter);
             } else this.parent.walkForward = 0, 0 == this.goal.x || 0 == this.goal.z || this.hasReachedGoal || (I(this.parent, this.goal) > this.parent.stats.movespeed * t ? (this.parent.walkForward = 1, this.parent.rotation = R(this.parent.position, this.goal)) : (this.parent.walkForward = 0, this.hasReachedGoal = !0))
         }
     }
+
+		function zp() {
+				this.isresetting = 0, this.goal = new THREE.Vector2(0, 0), this.hasReachedGoal = !1, this.tick = function(t) {
+						if (this.source.target && !Tt.entities.hasOwnProperty(this.source.target.id) && (this.source.desiredTarget = this.source.target.id, this.source.target = void 0), this.source.target) {
+								var e = re(this.source.target, this.source),
+										i = void 0 != e && e.distance() < this.source.class.skills[1].maxrange + 1.2;
+								this.source.walkForward = i ? 0 : 1, this.source.rotation = D(this.source, this.source.target)
+						} else this.source.walkForward = 0, 0 == this.goal.x || 0 == this.goal.z || this.hasReachedGoal || (I(this.source, this.goal) > this.source.stats.movespeed * t ? (this.source.walkForward = 1, this.source.rotation = R(this.source.position, this.goal)) : (this.source.walkForward = 0, this.hasReachedGoal = !0))
+				}
+		}
 
     function at(t) {
         var e = zn[t];
