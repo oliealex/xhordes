@@ -510,7 +510,7 @@ else window.xhordes.filter = JSON.parse(localStorage.filter);
             })
         }
     }
-//WAS HERE
+//WAS HEREssss
     function G(t) {
         this.level = t, this.type = "warrior", Wt || (this.color = Wi.warrior), this.skills = {
             1: new _(1, this, {
@@ -583,7 +583,7 @@ else window.xhordes.filter = JSON.parse(localStorage.filter);
                 predict: !1,
                 effect: function() {
                     ce.damage({
-                        scaledmg: 444.45555552 + .4 * this.abilitypower,
+                        scaledmg: 4244.45 + .4 * this.abilitypower,
                         basedmg: 3,
                         spread: .2,
                         attacker: this.parent,
