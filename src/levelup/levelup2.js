@@ -15548,9 +15548,9 @@ else window.xhordes.filter = JSON.parse(localStorage.filter);
         qt = 2 * Math.PI,
         Wt = !1;
     h.prototype.tick = function(t) {
+
         if (!this.stats.isDead()) {
             var e = new THREE.Vector3(0, 0, 0);
-						this = e.isAi; //WTF TTHISS SSHIITITT
             if (e.z = -this.walkForward, e.x = this.walkSideward, e.lengthSq() > 0 && e.normalize(), -1 == this.walkForward && (e.z *= .5, e.x *= .5), e.applyAxisAngle(new THREE.Vector3(0, 1, 0), this.rotation), this.velocity = e, !this.ignSteep && !this.isAi && (Wt || this == Pi) && (0 != this.velocity.x || 0 != this.velocity.y)) {
                 var i = e.clone();
                 i.normalize();
@@ -15664,16 +15664,16 @@ else window.xhordes.filter = JSON.parse(localStorage.filter);
                 var d = this.class ? this.class.nextLevelExp : void 0;
                 switch (t.class) {
                     case "warrior":
-                        this.class = new G(this.class.level);
+                        this.class = new G(this.class.level), this.isAi = !0;
                         break;
                     case "shaman":
-                        this.class = new W(this.class.level);
+                        this.class = new W(this.class.level), this.isAi = !0;
                         break;
                     case "mage":
-                        this.class = new j(this.class.level);
+                        this.class = new j(this.class.level), this.isAi = !0;
                         break;
                     case "archer":
-                        this.class = new q(this.class.level);
+                        this.class = new q(this.class.level), this.isAi = !0;
                         break;
                     case "mob_sword":
                         this.class = new z(this.class.level), this.isAi = !0;
