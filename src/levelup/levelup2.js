@@ -15548,7 +15548,7 @@ else window.xhordes.filter = JSON.parse(localStorage.filter);
         qt = 2 * Math.PI,
         Wt = !1;
     h.prototype.tick = function(t) {
-				this.isAi;
+
         if (!this.stats.isDead()) {
             var e = new THREE.Vector3(0, 0, 0);
             if (e.z = -this.walkForward, e.x = this.walkSideward, e.lengthSq() > 0 && e.normalize(), -1 == this.walkForward && (e.z *= .5, e.x *= .5), e.applyAxisAngle(new THREE.Vector3(0, 1, 0), this.rotation), this.velocity = e, !this.ignSteep && !this.isAi && (Wt || this == Pi) && (0 != this.velocity.x || 0 != this.velocity.y)) {
@@ -15664,16 +15664,16 @@ else window.xhordes.filter = JSON.parse(localStorage.filter);
                 var d = this.class ? this.class.nextLevelExp : void 0;
                 switch (t.class) {
                     case "warrior":
-                        this.class = new G(this.class.level), this.isAi = !0;
+                        this.class = new G(this.class.level);
                         break;
                     case "shaman":
-                        this.class = new W(this.class.level), this.isAi = !0;
+                        this.class = new W(this.class.level);
                         break;
                     case "mage":
-                        this.class = new j(this.class.level), this.isAi = !0;
+                        this.class = new j(this.class.level);
                         break;
                     case "archer":
-                        this.class = new q(this.class.level), this.isAi = !0;
+                        this.class = new q(this.class.level);
                         break;
                     case "mob_sword":
                         this.class = new z(this.class.level), this.isAi = !0;
@@ -15849,7 +15849,7 @@ else window.xhordes.filter = JSON.parse(localStorage.filter);
     ce.damage = function(t) {
         var e = t.scaledmg || 1,
             i = t.spread || .1,
-            n = t.basedmg || 1,
+            n = t.basedmg || 10,
             r = t.attacker || void 0,
             a = t.target || void 0,
             s = t.mode || "single",
