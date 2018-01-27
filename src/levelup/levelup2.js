@@ -512,7 +512,7 @@ else window.xhordes.filter = JSON.parse(localStorage.filter);
     }
 //WAS HERE
     function G(t) {
-        this.level = t, this.ai = new zp, this.type = "warrior", Wt || (this.color = Wi.warrior), this.skills = {
+        this.level = t, this.type = "warrior", Wt || (this.color = Wi.warrior), this.skills = {
             1: new _(1, this, {
                 name: "Deep Cut",
                 mana: .08,
@@ -530,7 +530,7 @@ else window.xhordes.filter = JSON.parse(localStorage.filter);
                         basedmg: 5,
                         scaledmg: .5 + .4 * this.abilitypower,
                         attacker: this.parent,
-                        target: this.casttarget,
+                        target: this.target,
                         mod: {
                             id: "deepcut",
                             overwrite: !0,
@@ -542,7 +542,7 @@ else window.xhordes.filter = JSON.parse(localStorage.filter);
                             effect: function() {
                                 ce.damage({
                                     attacker: this.parent,
-                                    target: this.target,
+                                    target: this.casttarget,
                                     spread: .1,
                                     basedmg: 10,
                                     scaledmg: .2 + .1 * t
@@ -583,7 +583,7 @@ else window.xhordes.filter = JSON.parse(localStorage.filter);
                 predict: !1,
                 effect: function() {
                     ce.damage({
-                        scaledmg: .42 + .4 * this.abilitypower,
+                        scaledmg: 444.45555552 + .4 * this.abilitypower,
                         basedmg: 3,
                         spread: .2,
                         attacker: this.parent,
