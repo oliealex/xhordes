@@ -15548,7 +15548,7 @@ else window.xhordes.filter = JSON.parse(localStorage.filter);
         qt = 2 * Math.PI,
         Wt = !1;
     h.prototype.tick = function(t) {
-
+				this.isAi;
         if (!this.stats.isDead()) {
             var e = new THREE.Vector3(0, 0, 0);
             if (e.z = -this.walkForward, e.x = this.walkSideward, e.lengthSq() > 0 && e.normalize(), -1 == this.walkForward && (e.z *= .5, e.x *= .5), e.applyAxisAngle(new THREE.Vector3(0, 1, 0), this.rotation), this.velocity = e, !this.ignSteep && !this.isAi && (Wt || this == Pi) && (0 != this.velocity.x || 0 != this.velocity.y)) {
